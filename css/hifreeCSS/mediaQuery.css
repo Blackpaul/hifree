@@ -1,0 +1,440 @@
+@media only screen and (max-width: 1700px) and (min-width: 1201px)  {
+	/* index.html login and registraion css code here */
+	.div-logreg{
+		width: 27% !important;
+		height: 71% !important;
+	}
+	.tooltip {
+		display: block !important;
+	}
+}
+@media only screen and (max-width: 1200px) and (min-width: 993px)  {
+	/* index.html login and registraion css code here */
+	.div-logreg {
+		width: 35% !important;
+		height: 71% !important;
+	}
+	.tooltip {
+		display: block !important;
+	}
+}
+@media only screen and (max-width: 992px) and (min-width: 769px)  {
+	/* index.html login and registraion css code here */
+	.div-logreg {
+		width: 45% !important;
+		height: 71% !important;
+	}
+	.div-logreg-email {
+		padding-top: 5%;
+	}
+	.div-logreg-link {
+		text-align: center;
+	}
+	.div-logreg-link-a {
+		margin-left: 0px !important;
+	}
+	.alert-div {
+		margin: -25px 0 0 0 !important;
+	}
+	.tooltip {
+		display: block !important;
+	}
+
+}
+@media only screen and (max-width: 768px) and (min-width: 601px)  {
+	/* index.html login and registraion css code here */
+  	.div-logreg {
+		width: 55% !important;
+		height: 71% !important;
+	}
+	.div-logreg-email {
+		padding-top: 5%;
+	}
+	.div-logreg-link {
+		text-align: center;
+	}
+	.div-logreg-link-a {
+		margin-left: 0px !important;
+	}
+	.alert-div {
+		margin: -25px 0 0 0 !important;
+	}
+	.btn-verify, .btn-back-login {
+		width: 100% !important;
+	}
+	.btn-ask-again, .btn-reset-pass {
+		margin: 10px 0 0 !important;
+		width: 100% !important;
+	}
+	.tooltip {
+		display: none !important;
+	}
+
+	/* home.html css code here */
+	.div-header {
+		width: auto !important;
+	}
+	.div-brand {
+		width:85% !important;
+	}
+	.nbrand-ig {
+		width:85% !important;
+	}
+	.div-display-pic-img, .div-display-pic-img-main{
+		width: 90% !important;
+	}
+	
+}
+@media only screen and (max-width: 600px) and (min-width: 481px)  {
+	/* index.html login and registraion css code here */
+  	.div-logreg {
+		width: 65% !important;
+	}
+	.div-logreg-email {
+		padding-top: 5%;
+	}
+	.div-logreg-link {
+		text-align: center;
+	}
+	.div-logreg-link-a {
+		margin-left: 0px !important;
+	}
+	.alert-div {
+		margin: -25px 0 0 0 !important;
+	}
+	.btn-verify, .btn-back-login {
+		width: 100% !important;
+	}
+	.btn-ask-again, .btn-reset-pass {
+		margin: 10px 0 0 !important;
+		width: 100% !important;
+	}
+	.modal-content-wrapper {
+		width:96% !important;
+	}
+	.tooltip {
+		display: none !important;
+	}
+	
+	/* home.html css code here */
+	.div-header {
+		width: auto !important;
+	}
+	.div-brand {
+		width:85% !important;
+	}
+	.nbrand-ig {
+		width:85% !important;
+	}
+	.side-nav {
+		width: 65% !important;
+	}
+	.div-display-action {
+		left: 95% !important;
+	}
+	.div-display-pic-img, .div-display-pic-img-main{
+		width: 90% !important;
+	}
+
+
+}
+@media only screen and (max-width: 480px) and (min-width: 321px)  {
+	/* index.html login and registraion css code here */
+	.div-logreg {
+		margin: 5% 0 0 0 !important;
+		width: 100% !important;
+	}
+	.div-logreg-email {
+		padding-top: 5%;
+	}
+	.div-logreg-link {
+		text-align: center;
+	}
+	.div-logreg-link-a {
+		margin-left: 0px !important;
+	}
+	.alert-div {
+		margin: -25px 0 0 0 !important;
+	}
+	.div-reg-btn {
+		padding-bottom: 50px !important;
+	}
+	.btn-verify, .btn-back-login {
+		width: 100% !important;
+	}
+	.btn-ask-again, .btn-reset-pass {
+		margin: 10px 0 0 !important;
+		width: 100% !important;
+	}
+	.modal-content-wrapper {
+		width:95% !important;
+	}
+	.tooltip {
+		display: none !important;
+	}
+
+	/* home.html css code here */
+	.div-header {
+		width: auto !important;
+	}
+	.div-brand {
+		width:85% !important;
+	}
+	.nbrand-ig {
+		width:85% !important;
+	}
+	.side-nav {
+		width: 75% !important;
+	}
+	.div-nav-user {
+		left: 20% !important;
+	}
+	.post-write {
+		padding-left: 2% !important;
+	}
+	.div-display-action {
+		left: 94% !important;
+	}
+	.div-display-post {
+		padding: 3% !important;
+	}
+	.div-display-pic-img, .div-display-pic-img-main{
+		width: 90% !important;
+	}
+	.mdl-side-nav {
+		padding: 5px !important;
+	}
+	.mdl-io-p,
+	.mdl-io-p1,
+	.mdl-io-p2,
+	.mdl-io-3 {
+		top: 12%;
+	}
+	.mdl-inner-content-name p {
+		top: 8%;
+	}
+	.mdl-inner-content-name .div-f {
+		top: 8%;
+	}
+	.mdl-inner-content-name .div-m {
+		top: 13%;
+	}
+	.mdl-inner-content-name .div-l {
+		top: 18%;
+	}
+	.mdl-inner-content-name .div-f, .mdl-inner-content-name .div-m, .mdl-inner-content-name .div-l{
+		width: 100%;
+		padding-left: 10px;
+	}
+	.mdl-inner-content-name hr {
+		top: 13%;
+	}
+	.mdl-inner-content-name .btn-div {
+		top: 8%;
+		right: 0px;
+		float: none !important;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.mdl-inner-content-detail .p-head {
+		top: 5%;
+		padding: 1px;
+	}
+	.mdl-inner-content-detail .p-username {
+		top: 5%;
+		font-size: 12px;
+	}
+	.mdl-inner-content-detail .p-current{
+		top: 5%;
+		position: relative;
+		font-size: 12px;
+	}
+	.mdl-inner-content-detail .p-current i{
+		font-size: 9px;
+	}
+	.mdl-inner-content-detail .p-note {
+		top: 5%;
+		padding: 5px;
+	}
+	.mdl-inner-content-detail .div-btn {
+		top: 4%;
+		left: 0px;
+		float: none !important;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.mdl-inner-content-contact .p-head{
+		top: 5%;
+		padding: 1px;
+	}
+	.mdl-inner-content-contact ul{
+		top: 5%;
+		position: relative;
+		font-size: 13px;
+	}
+	.mdl-inner-content-contact .p-note {
+		top: 5%;
+		position: relative;
+		color: #666;
+		padding: 5px;
+		background-color: #fff;
+	}
+	.mdl-inner-content-contact a{
+		top: 5%;
+
+	}
+}
+@media only screen and (max-width : 320px) {
+	/* index.html login and registraion css code here */
+    .div-logreg {
+		margin: 0 !important;
+		width: 100% !important;
+	}
+	.div-logreg-email {
+		padding-top: 5%;
+	}
+	.div-logreg-link {
+		text-align: center;
+	}
+	.div-logreg-link-a {
+		margin-left: 0px !important;
+	}
+	.alert-div {
+		margin: -25px 0 0 0 !important;
+	}
+	.div-reg-btn{
+		padding-bottom: 50px !important;
+	}
+	.btn-verify, .btn-back-login {
+		width: 100% !important;
+	}
+	.btn-ask-again, .btn-reset-pass {
+		margin: 10px 0 0 !important;
+		width: 100% !important;
+	}
+	.modal-content-wrapper {
+		width:95% !important;
+	}
+	.tooltip {
+		display: none !important;
+	}
+
+	/* home.html css code here */
+	.div-header {
+		width: auto !important;
+	}
+	.div-brand {
+		width:80% !important;
+	}
+	.nbrand-ig {
+		width:80% !important;
+	}
+	.side-nav {
+		width: 90% !important;
+	}
+	.div-nav-user {
+		left: 10% !important;
+	}
+	.sub-nav-ul {
+		left: 15%;
+		width: 90%;
+	}
+	.post-write {
+		padding-left: 2% !important;
+	}
+	.div-display-action {
+		left: 93% !important;
+	}
+	.div-display-post {
+		padding: 3% !important;
+	}
+	.div-display-pic-img, .div-display-pic-img-main{
+		width: 85% !important;
+	}
+	.mdl-side-nav {
+		padding: 0 !important;
+	}
+	.mdl-io-p,
+	.mdl-io-p1,
+	.mdl-io-p2,
+	.mdl-io-3 {
+		top: 9%;
+	}
+	.mdl-inner-content-name p {
+		top: 5%;
+	}
+	.mdl-inner-content-name .div-f {
+		top: 5%;
+	}
+	.mdl-inner-content-name .div-m {
+		top: 10%;
+	}
+	.mdl-inner-content-name .div-l {
+		top: 15%;
+	}
+	.mdl-inner-content-name .div-f, .mdl-inner-content-name .div-m, .mdl-inner-content-name .div-l{
+		width: 100%;
+		padding-left: 10px;
+	}
+	.mdl-inner-content-name hr {
+		top: 10%;
+	}
+	.mdl-inner-content-name .btn-div {
+		top: 5%;
+		right: 0px;
+		float: none !important;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.mdl-inner-content-detail .p-head {
+		top: 5%;
+		padding: 1px;
+		background-color: transparent;
+		color: #666;
+	}
+	.mdl-inner-content-detail .p-username {
+		top: 5%;
+		font-size: 12px;
+	}
+	.mdl-inner-content-detail .p-current{
+		top: 5%;
+		position: relative;
+		font-size: 12px;
+	}
+	.mdl-inner-content-detail .p-current i{
+		font-size: 9px;
+	}
+	.mdl-inner-content-detail .p-note {
+		top: 5%;
+		padding: 5px;
+	}
+	.mdl-inner-content-detail .div-btn {
+		top: 4%;
+		left: 0px;
+		float: none !important;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.mdl-inner-content-contact .p-head{
+		top: 5%;
+		padding: 1px;
+	}
+	.mdl-inner-content-contact ul{
+		top: 5%;
+		position: relative;
+		font-size: 13px;
+	}
+	.mdl-inner-content-contact .p-note {
+		top: 5%;
+		position: relative;
+		color: #666;
+		padding: 5px;
+		background-color: #fff;
+	}
+	.mdl-inner-content-contact a{
+		top: 5%;
+
+	}
+
+}

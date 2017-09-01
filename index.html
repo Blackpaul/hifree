@@ -1,0 +1,206 @@
+<?php 
+	include 'php/userFunction.php';
+		$user = isLoginBackEvent();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>HiFree</title>
+			<link rel="stylesheet" type="text/css" href="css/hifreeCSS/user.css">
+			<link rel="stylesheet" type="text/css" href="css/hifreeCSS/mediaQuery.css">
+			<link rel="stylesheet" type="text/css" href="css/hifreeCSS/keyFrames.css">
+			<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+			<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+			<link rel="stylesheet" type="text/css" href="css/bootstrapTooltip.css">
+	
+			<script src="javascript/plugins/jquery-3.2.1.min.js"></script>
+			<script src="javascript/plugins/bootstrap.min.js"></script>
+			<script src="javascript/plugins/selectDropdown.js"></script>
+			<script src="javascript/plugins/jqueryValidation.js"></script>
+			<script src="javascript/plugins/bootstrapTooltip.js" /></script>
+			<script src="javascript/user.js"></script>
+  			
+</head>
+<body>
+	<div class="background">
+		<div class="container-fluid div-center">
+			<!-- simple background animation -->
+			<div class="div-animation">
+				<div class="div-arrow-1"></div>
+				<div class="div-arrow-2"></div>
+				<div class="div-arrow-3"></div>
+				<div class="div-arrow-4"></div>
+				<div class="div-animation-sub-1"></div>
+				<div class="div-animation-sub-2"></div>
+				<div class="div-animation-sub-3"></div>
+				<div class="div-animation-sub-4"></div>
+				<div class="div-animation-sub-5"></div>
+				<div class="div-animation-sub-6"></div>
+				<div class="div-animation-sub-7"></div>
+				<div class="div-animation-sub-8"></div>
+				<div class="div-animation-sub-9"></div>
+				<div class="div-animation-sub-10"></div>
+				<div class="div-animation-sub-11"></div>
+				<div class="div-animation-sub-12"></div>
+				<div class="div-animation-sub-13"></div>
+				<div class="div-animation-sub-14"></div>
+				
+			</div>
+			<!-- end simple background animation -->
+
+			<!-- process wait loading bars-->
+			<div class="div-loading-background">
+				<div class="div-loading-center">
+    				<div class="div-loading-animate-1"></div>
+    				<div class="div-loading-animate-2"></div>
+    				<div class="div-loading-animate-3"></div>
+    			</div>
+			</div>
+			<!-- end process wait loading bars-->
+
+
+			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 div-logreg-container">
+				<div class="center-block div-logreg">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 div-logreg-back">
+						<p class="center-block text-center div-logreg-p1">Welcome to HiFree</p>
+						<p class="center-block text-center div-logreg-p2"><font class="div-logreg-font">Talk less</font> <b class="div-logreg-b">DO MORE</b></p>
+						<p class="center-block text-center div-logreg-p3"><a href="www.google.com">HiFree</a> the hotties social media on the internet, where you can communicate to your friends, relatives or love once.</p>
+						
+						<!-- login -->
+						<div class="col-xl-12 col-lg-12 col-md-12 div-logreg-div"> 
+							<form class="login-form" method="POST">
+								<div class="col-xl-12 col-lg-12 col-md-12 div-logreg-email">
+									<div class="input-group">
+										<input type="text" class="form-control" name="txtLoginUseremail" placeholder="Email Address" tabindex="1">
+										<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+									</div>
+								</div>
+								<div class="col-xl-12 col-lg-12 col-md-12 div-logreg-pass">
+									<div class="input-group">
+										<input type="password" class="form-control" name="txtLoginUserpass" placeholder="Password" tabindex="2">
+										<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+									</div>
+								</div>
+								<div class="col-xl-6 col-lg-6 col-md-6 div-logreg-button">
+									<input type="button" class="btn btn-primary div-logreg-button-i" value="Login" tabindex="3"/>
+								</div>
+								<div class="col-xl-6 col-lg-6 col-md-6 div-logreg-link">
+									<a href="#" class="div-logreg-link-a">Account problem?</a>
+								</div>
+								<div class="alert alert-warning text-center alert-div" style=""></div>
+							</form>
+	            		</div>
+	            		<!-- end login -->
+
+	            		<!-- registration -->
+			            <div class="col-xl-12 col-lg-12 col-md-12 div-reg">
+				            <form class="reg-form" id="signupForm" method="POST">
+				            	<h4 class="col-xl-12 col-lg-12 col-md-12 div-reg-h4">No account?</h4>
+				            	<p class="col-xl-12 col-lg-12 col-md-12 div-reg-p">Free sign up, just fill up the following.</p>
+				            	<p class="col-xl-12 col-lg-12 col-md-12 div-alert-reg"></p>
+				            	<div class="form-group col-xl-12 col-lg-12 col-md-12 div-reg-user">
+				            		<input type="text" class="form-control" name="txtusername" placeholder="Username" data-placement="left" tabindex="4">
+				            		<span id="ui" class="glyphicon glyphicon-user form-control-feedback reg-span"></span> 
+				            	</div>
+								<div class="form-group col-xl-12 col-lg-12 col-md-12 div-reg-email">
+									<input type="text" class="form-control" name="txtuseremail"  placeholder="Email Address" data-placement="left" tabindex="5">
+									<span id="ui" class="glyphicon glyphicon-envelope form-control-feedback reg-span"></span> 
+								</div>
+								<div class="form-group col-xl-12 col-lg-12 col-md-12 div-reg-pass">
+									<input type="password" class="form-control" name="txtuserpass" placeholder="Password" data-placement="left" tabindex="6">
+									<span id="ui" class="glyphicon glyphicon-lock form-control-feedback reg-span"></span> 
+								</div>
+								<div class="form-group col-xl-12 col-lg-12 col-md-12 div-reg-gender">
+									<a class="btn btn-primary btn-select">
+						           		<input type="text" class="btn-select-input slctGender" name="slctGender" data-placement="left" readonly/>
+						            	<span class="btn-select-value" tabindex="7">Select Gender</span>
+						            	<span class='btn-select-arrow glyphicon glyphicon-chevron-down span-gly'></span>
+						             	<ul class="ulList">
+							              	<li>Male</li>
+							              	<li>Female</li>
+							              	<li>Gay</li>
+							              	<li>Lesbian</li>
+						            	</ul>
+						            </a>
+						            <span id="ui" class="glyphicon glyphicon-chevron-down form-control-feedback span-gly1"></span> 
+								</div>
+								<div class="col-xl-12 col-lg-12 col-md-12 div-reg-btn">
+									<input type="button" class="btn btn-warning div-reg-btn-i" value="Create" tabindex="8">
+								</div>
+							</form>
+			            </div>
+	            		<!-- end registration -->
+
+						<!-- Confirmation Modal -->
+						<div class="modal fade account-confirmation-mdl" role="dialog">
+						    <div class="modal-dialog modal-dia-div">
+								<div class="modal-content modal-content-div">
+									<div class="modal-content-wrapper">
+										<div class="modal-header modal-header-div">
+											<button type="button" class="close close-div-mdl" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title modal-title-div">Congratulations!</h4>
+											<p class="div-sub-title"><span class="getusername"></span>, a verification code has been sent to this email : <span class="getEmail"></span></p>
+										</div>
+										<div class="modal-body">
+											<p class="text-center" >Before anything else, kindly enter the <i class="mdl-body-msg">verification code.</i></p>
+											<div class="input-group div-ig">
+												<span class="input-group-addon"><i class="glyphicon glyphicon-wrench"></i></span>
+												<input type="text" name="" class="form-control verify-txtbox" required tabindex="9">
+												<span class="verify-txtbox-border"></span>  
+												<label class="label-txt">Enter verification code.</label>
+											</div>
+											<p class="text-center mdl-body-text">Invalid code? <a class="getNewCode">Click here.</a></p>
+										</div>
+										<div class="alert alert-warning text-center div-alert-verify"></div>
+										<div class="modal-footer ">
+											<button type="button" class="btn btn-default btn-verify" tabindex="10">Verify</button>
+											<button type="button" class="btn btn-default btn-ask-again" tabindex="11">Ask another code</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- End Confirmation Modal -->
+
+						<!-- forgot password Modal -->
+						<div class="modal fade forgot-pass-mdl" role="dialog">
+						    <div class="modal-dialog modal-dia-div">
+								<div class="modal-content modal-content-div">
+									<div class="modal-content-wrapper">
+										<div class="modal-header modal-header-div">
+											<button type="button" class="close close-div-mdl" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title modal-title-div">Forgot password!</h4>
+											<p class="div-sub-title">This is auto generated system, kindly change your password after.</p>
+										</div>
+										<div class="modal-body">
+											<div class="input-group div-ig-forgot">
+												<span class="input-group-addon"><i class="glyphicon glyphicon-random"></i></span>
+												<input type="text" name="" class="form-control forgot-txtbox" required>
+												<span class="forgot-txtbox-border"></span>  
+												<label class="label-txt">Email address</label>
+											</div>
+										</div>
+										<div class="alert alert-warning text-center div-alert-reset"></div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default btn-back-login">Login</button>
+											<button type="button" class="btn btn-default btn-reset-pass">Reset password</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- forgot password Modal -->
+
+
+
+
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<?php 
+	include '../php/userFunction.php';
+			$user = isLogin();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Home</title>
+			<link rel="stylesheet" type="text/css" href="../css/hifreeCSS/home.css">
+			<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+			<link rel="stylesheet" type="text/css" href="../css/hifreeCSS/mediaQuery.css">
+
+			<script src="../javascript/plugins/jquery-3.2.1.min.js"></script>
+			<script src="../javascript/plugins/bootstrap.min.js"></script>
+			<script src="../javascript/plugins/selectDropdown.js"></script>
+			<script src="../javascript/plugins/bootstrap-filestyle.min.js"></script>
+			<script src="../javascript/home.js"></script>
+			
+			
+</head>
+<body>
+	<div class="background">
+		<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="container">
+					<div class="navbar-header div-header" >
+						<button type="button" class="navbar-toggle side-bar-button" style="background-color: transparent !important;">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<div class="navbar-brand div-brand">
+							<div class="input-group nbrand-ig">
+								<div  class="div-logo" href="#">
+									<p class="text1">h</p>
+									<p class="text2">F</p>
+								</div>
+								<div class="input-group div-search-ig" >
+									<input type="text" class="form-control input-search" placeholder="Search">
+										<div class="input-group-btn">
+											<button class="btn btn-default gly-btn-search">
+												<i class="glyphicon glyphicon-search gly-search"></i>
+											</button>
+										</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="collapse navbar-collapse">
+						<ul class="nav navbar-nav navbar-right ul-nav-bar">
+							<li><a href="#" class="email-ses"><i class="glyphicon glyphicon-user"></i> <?php echo ucfirst($_SESSION['loginusername']);?></a></li>
+							<li><a href="#">Home</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span> </a>
+									<ul class="dropdown-menu pull-right">
+										<li><a class="user-info-mdl-show">User Info</a></li>
+										<li><a href="#">Services</a></li>
+										<li><a href="#">Settings</a></li>
+										<li><a href="#">Hi Free</a></li>
+										<li><a href="../php/logout.php" class="eraseDummySession">Log-out</a></li>
+									</ul>
+							</li>
+						</ul>					    
+					</div>
+				</div>
+			</div>
+		</nav>
+		
+		<div class="side-nav" id="scrollbar-id">
+			<div class="side-nav-content">
+				<p class="nav-title"><i class="glyphicon glyphicon-flag"></i> HiFree Community</p>
+				<div class="div-nav-user">
+					<div class="div-nav-user-img"></div>
+					<p class="div-nav-user-username"><?php echo ucfirst($_SESSION['loginusername']);?></p>
+					<p class="div-nav-user-emaill"><?php echo $_SESSION['loginuseremail'];?></p>
+				</div>
+				<ul class="div-nav-ul">
+					<li class="nav-ul-li"><a href="#"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+					<li class="nav-ul-li"><a href="#"><i class="glyphicon glyphicon-ruble"></i> Profile</a><i class="pull-right glyphicon glyphicon-chevron-down i-down"></i></li>
+				</ul>
+				<ul class="sub-nav-ul">
+					<li class="sub-nav-ul-li"><a class="user-info-mdl-show"><i class="glyphicon glyphicon-compressed"></i>User Info</a></li>
+					<li class="sub-nav-ul-li"><a href=""><i class="glyphicon glyphicon-sunglasses"></i> Services</a></li>
+					<li class="sub-nav-ul-li"><a href=""><i class="glyphicon glyphicon-cog"></i> Settings</a></li>
+					<li class="sub-nav-ul-li"><a href=""><i class="glyphicon glyphicon-send"></i> Hi free</a></li>
+					<li class="sub-nav-ul-li"><a href=""><i class="glyphicon glyphicon-log-out"></i> Log-out</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="container-fluid div-content">
+			<div class="div-qoutes"></div>
+			<div class="container div-content-container">
+				<div class="div-line"></div>
+				<div class="div-menu">
+					<ul>
+						<li><i class="glyphicon glyphicon-user"></i></li>
+						<li><i class="glyphicon glyphicon-cloud"></i></li>
+						<li><i class="glyphicon glyphicon-thumbs-up"></i></li>
+						<li><i class="glyphicon glyphicon-envelope"></i></li>
+						<li><i class="glyphicon glyphicon-share-alt"></i></li>
+					</ul>
+				</div>
+
+				<div class="div-inner-content" id="scrollbar-id">
+					<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 hidden-xs div-shortcuts">
+						<p class="shortcuts-title">Shortcuts</p>
+					</div>
+					<div class="col-xl-2 col-lg-2 col-md-2 pull-right hidden-sm hidden-xs div-online-contacts">
+						<p class="online-contacts-title">Online contacts</p>
+					</div>
+				</div>
+
+				<div class="div-inner-content-sub" id="scrollbar-id">
+					<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 hidden-xs div-dummy-1"></div>
+					<div class="col-xl-8 col-lg-8 col-md-8 col-sm-10 div-world-post">
+						<div class="post-content">	
+							<p class="post-title">World post</p>
+							<div class="post-write">
+								<div class="col-xl-1 col-lg-1 col-md-1 col-sm-2 col-xs-2 post-write-div-col-1">
+									<div class="post-write-div-col-1-pic"></div>
+									<div class="post-write-div-col-1-pic-main user-info-mdl-show"></div>
+								</div>
+								<div class="col-xl-11 col-lg-11 col-md-11 col-sm-10 col-xs-10 post-write-div-col-2">
+									<textarea class="modified-textarea" id="scrollbar-id" required></textarea>
+									<label class="txt-label" style="">Define your feelings.</label>
+								</div>
+							</div>
+							<input type="button" class="btn btn-default pull-right post-btn" value="Post">
+						</div>
+						<div class="all-post">
+							<!--display database post here-->
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-2 col-md-2 hidden-sm hidden-xs div-dummy-2"></div>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="user-info-mdl" class="modal fade user-info-mdl" role="dialog">
+			<div class="modal-dialog">
+				<form class="user-info" method="POST">
+					<div class="modal-content">
+						<div class="modal-body">
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mdl-head">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <font class="htext">User's Info</font>
+								<button type="button" class="close mdl-close" data-dismiss="modal">&times;</button>
+							</div>
+							<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 mdl-side-nav">
+								<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mdl-user-pic">
+	<!-- dere ang picture-->		<div class="mdl-user-pic-display"></div>
+									<div class="mdl-user-pic-hover"><i class="glyphicon glyphicon-picture"></i><p class="text-center">Change picture</p></div>
+								</div>
+								<ul class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mdl-ul">
+									<li id="0">Name<i class="glyphicon glyphicon-chevron-right pull-right hidden-xs"></i></li>
+									<li id="1">Detail<i class="glyphicon glyphicon-chevron-right pull-right hidden-xs"></i></li>
+									<li id="2">Email<i class="glyphicon glyphicon-chevron-right pull-right hidden-xs"></i></li>
+								</ul>
+							</div>
+							<div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-9 mdl-content">
+								<div class="mdl-inner-out text-center">
+									<p class="text-center mdl-io-p">Welcome! feel free to update your account anytime.</p>
+									<p class="text-left mdl-io-p1">Please Note : <font>You are responsible for any updates of your details. Any failure occured, hifree is out of it. </font> </p>
+									<p class="mdl-io-p2"></p>
+									<p class="pull-right mdl-io-3"><a href="">hifree</a></p>
+								</div>
+								<div class="mdl-inner-content-name">
+									<p class="text-center">Use your real name for security purposes.</p>
+									<div class="div-f">
+										<label>First</label>
+										<input type="text" name="fnametxt" class="fnametxt">
+									</div>
+									<div class="div-m">
+										<label>Middle</label>
+										<input type="text" name="mnametxt" class="mnametxt">
+									</div>
+									<div class="div-l">
+										<label>Last</label>
+										<input type="text" name="lnametxt" class="lnametxt">
+									</div>
+									<hr/>
+									<div class="btn-div">
+										<input type="button" name="" value="Save" class="btn btn-default pull-left btn-save-update">
+									</div>
+								</div>
+								<div class="mdl-inner-content-detail">
+									<p class="text-center p-head">Account username can be seen in public.</p>
+									<p class="text-center p-username">Username <input type="" name="" class="currentUsernametxt"></p>
+									<p class="text-center p-current"></p>
+									<p class="p-note">Please Note : <font>You can only change your username every 5days.</font></p>
+									<div class="pull-left div-btn">
+										<input type="button" name="" value="Change" class="btn btn-default btn-detail-save">
+									</div>
+								</div>
+								<div class="mdl-inner-content-contact">
+									<p class="text-center p-head">Your current contacts.</p>
+									<ul class="text-left">
+										<li>Primary contact : <label class="label-prime-con"></label></li>
+										<li>Secondary contact : <label class="label-secon-con"></label></li>
+									</ul>
+									<p class="p-note">Please Note : <font>If you are using a phone number, please use the actice one.</font></p>
+									<a class="pull-right update-link" href="#">Update</a>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer"></div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!-- Nested Contact Modal -->
+		<div class="modal fade new-contact-mdl" id="new-contact-mdl" role="dialog">
+			<div class="modal-dialog modal-sm nested-mdl-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h5 class="modal-title">Update</h5>
+					</div>
+					<div class="modal-body">
+						<div class="contact-opt">
+							<div class="form-group">
+								<a class="btn btn-primary btn-select">
+									<input type="hidden" class="btn-select-input slctCon"/>
+									<span class="btn-select-value curr-span-val">Select Contact</span>
+									<span class='btn-select-arrow glyphicon glyphicon-chevron-down span-gly'></span>
+									<ul class="con-select-opt">
+									</ul>
+								</a>
+							</div>
+						</div>
+						<div class="contact-edit">
+							<label>Contact</label>
+							<input type="text" class="edi-con-inp"> 
+						</div>
+						<div class="contact-add">
+							<label>New</label>
+							<input type="text" class="add-new-inp"> 
+						</div>
+						<div class="text-center div-anp">
+							<p class="anp-current" ></p>
+						</div>
+
+						<div class="prim-sec-rbtn">
+							<label><input type="radio" name="optradio" class="ordNo" id="prime" value="Primary"> Primary &nbsp; </label>
+							<label><input type="radio" name="optradio" class="ordNo" id="second" value="Secondary"> Secondary </label>
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default sub-mdl-btn-cancel" style="display:none;">Cancel</button>
+						<button type="button" class="btn btn-default sub-mdl-btn-edit">Edit</button>
+						<button type="button" class="btn btn-default sub-mdl-btn-save">Save</button>
+						<a href="" class="pull-left add-new-con">Add new</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Nested Change Picture Modal -->
+		<form class="chang-pic-form" method="POST" enctype="multipart/form-data">
+			<div class="modal fade mdl-change-pic" role="dialog">
+				<div class="modal-dialog modal-sm nested-mdl-dialog-changepic">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h5 class="modal-title">Change picture</h5>
+						</div>
+						<div class="modal-body">
+							<div class="chang-pic-div">
+								<input type="file" name="file" id="file" class="filestyle get-file-name" data-iconName="glyphicon glyphicon-picture" data-buttonText="Select picture">
+							</div>
+						</div>
+						<div class="modal-footer">
+							<p class="text-center err-text"></p>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<!--preview image modal-->
+		<div class="modal fade mdl-preview-pic" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h5 class="modal-title">Preview picture</h5>
+					</div>
+					<div class="modal-body">
+						<img src="#" class="prev-img">
+					</div>
+					<div class="modal-footer">
+						<p class="pull-left pleft-text">Would you like to use this picture?</p>
+						<button type="button" class="btn btn-info btn-save-img">Save</button>
+						<button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div><!--end background-->
+</body>
+</html>

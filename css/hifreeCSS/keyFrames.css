@@ -1,0 +1,97 @@
+/******div-arrow-1:after framess*******/
+@-webkit-keyframes dr-1 {
+    0%   {top:0px;}
+    50%  {opacity: .3;}
+    100% {top:-190px;opacity: 0;}
+}
+@keyframes dr-1 {
+    0%   {top:0px;}
+    50%  {opacity: .3;}
+    100% {top:-190px;opacity: 0;}
+}
+
+/******div-arrow-3:after framess*******/
+@-webkit-keyframes dr-3 {
+    0%   {left:0px;}
+    100% {left:-660px;}
+}
+@keyframes dr-3 {
+    0%   {left:0px;}
+    100% {left:-660px;}
+}
+/******div-arrow-4:before framess*******/
+@-webkit-keyframes dr-4 {
+    0%   {left:0px;}
+    100% {left:-700px;opacity: 0;}
+}
+@keyframes dr-4 {
+    0%   {left:0px;}
+    100% {left:-700px;opacity: 0;}
+}
+/******div-animation-sub-2 framess*******/
+@-webkit-keyframes da-2 {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes da-2 {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+/******div-animation-sub-3 framess*******/
+@-webkit-keyframes da-3 {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes da-3 {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+/******div-animation-sub-6 framess*******/
+@-webkit-keyframes da-6 {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes da-6 {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+/******div-animation-sub-11 framess*******/
+@-webkit-keyframes da-11 {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes da-11 {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+
+/******div-loader-animation-1 framess*******/
+@-webkit-keyframes loader-1 {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes loader-1 {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+/******div-loader-animation-2 framess*******/
+@-webkit-keyframes loader-2 {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes loader-2 {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+/******div-loader-animation-3 framess*******/
+@-webkit-keyframes loader-3 {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes loader-3 {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,21 @@
+<?php 
+	include '../php/userFunction.php';
+			$user = isLogin();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profile</title>
+</head>
+<body>
+<a href="../php/logout.php">logout</a>
+<br>
+<br>
+<br>
+<br>
+<br>
+<?php 
+	echo $_SESSION['loginuseremail'];
+?>
+</body>
+</html>

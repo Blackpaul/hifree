@@ -1,0 +1,54 @@
+create database hifree;
+
+create table tbl_user(
+	userId int primary key auto_increment,
+	userName varchar(20) default null,
+	userEmail varchar(30) default null,
+	userPass varchar(20) default null,
+	userGender varchar(15) default null,
+	verification varchar(20) default null,
+	regDate timestamp not null default current_timestamp
+);
+
+create table tbl_userName(
+	fullnameId int primary key auto_increment,
+	userFname varchar(20) default null,
+	userMname varchar(5) default null,
+	userLname varchar(20) default null,
+	userOname varchar(20) default null,
+	userId varchar(10) default null,
+	nameDateUpdate timestamp not null default current_timestamp
+);
+
+create table tbl_userPhoto(
+	photoId int primary key auto_increment,
+	photoName varchar(255) default null,
+	userId varchar(10) default null,
+	photoDateUpdate timestamp not null default current_timestamp
+);
+
+create table tbl_userContacts(
+	contactId int primary key auto_increment,
+	contactEmail varchar(30) default null,
+	contactNo varchar(20) default null,
+	primaryCon varchar(5) default null,
+	secondaryCon varchar(5) default null,
+	userId varchar(10) default null,
+	contactDateUpdate timestamp not null default current_timestamp
+);
+
+create table tbl_userPost(
+	postId int primary key auto_increment,
+	postMsg text default null,
+	userId varchar(10) default null,
+	postDate timestamp not null default current_timestamp
+);
+
+create table tbl_comment(
+	commentId int primary key auto_increment,
+	commentMsg text default null,
+	postId varchar(10) default null,
+	userId varchar(10) default null,
+	commentDate timestamp not null default current_timestamp
+);
+
