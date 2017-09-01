@@ -53,7 +53,7 @@
 						echo 		"<div class='div-display-pic-img-main' style='background-image: url(".$Photo.");background-position:center;background-repeat:no-repeat;background-size:cover;'></div>";
 						echo 	"</div>";
 						echo 	"<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 div-display-nameDate'>";
-						echo  		"<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 div-display-name'>&nbsp" . $biga ."</div>";			
+						echo  		"<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 div-display-name'>&nbsp" . $username ."</div>";			
 						echo  		"<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 div-display-date'>&nbsp". $dt->format('M j Y g:i A') ."</div>";	
 						echo 	"</div>";
 						echo  	"<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 div-display-msg'>". $row->postMsg ."</div>";
