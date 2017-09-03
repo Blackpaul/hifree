@@ -136,9 +136,9 @@ $(document).ready(function(){
 				cache: false,
 				beforeSend: function(){},
 				success: function(data){
-					doModal(data);
+					$('.err-msg').fadeIn('fast').append(data);
 					setTimeout(function() {
-						$('#dynamicModal').modal('toggle');									
+						$('.err-msg').hide('fast').text('');							
 					}, 2000);
 				}
 			});
@@ -183,9 +183,9 @@ $(document).ready(function(){
 				data: { sendUsername: $.trim($('.currentUsernametxt').val()), sendUserId: globalSessionUserId},
 				beforeSend: function(){},
 				success: function(data){
-					doModal(data);
+					$('.err-msg').fadeIn('fast').append(data);
 					setTimeout(function() {
-						$('#dynamicModal').modal('toggle');
+						$('.err-msg').hide('fast').text('');
 							globalDataUsername = "0";
 							$('.p-current').text('Changes save.').css({'color':'#fff'});								
 					}, 2000);
@@ -504,9 +504,9 @@ $(document).ready(function(){
 							cache: false,
 							beforeSend: function(){},
 							success: function(data){
-								doModal(data);
+								$('.err-msg').fadeIn('fast').append(data);
 								setTimeout(function() {
-									$('#dynamicModal').modal('toggle');
+									$('.err-msg').hide('fast').text('');
 										$('.new-contact-mdl').modal('toggle');
 										$('.add-new-inp').val('');
 										globalContactData = "6";
@@ -542,9 +542,9 @@ $(document).ready(function(){
 								beforeSend: function(){},
 								success: function(data){
 									var getDataResult = $.parseJSON(data);
-									doModal(getDataResult.msg);
+									$('.err-msg').fadeIn('fast').append(getDataResult.msg);
 									setTimeout(function() {
-										$('#dynamicModal').modal('toggle');
+										$('.err-msg').hide('fast').text('');
 											$('.new-contact-mdl').modal('toggle');
 											$('.div-nav-user-emaill').text(getDataResult.newEmail);
 											$('.add-new-inp').val('');
@@ -639,14 +639,18 @@ $(document).ready(function(){
 	
 	$('.sub-mdl-btn-edit').click(function(){
 		if ($('.slctCon').val() == ""){
-			doModal('Select a contact please!');
+			$('.sub-mdl-btn-edit').prop('disabled', true);
+			$('.err-msg').fadeIn('fast').append('Select a contact please!');
 			setTimeout(function() {
-				$('#dynamicModal').modal('toggle');
+				$('.sub-mdl-btn-edit').prop('disabled', false);
+				$('.err-msg').hide('fast').text('');
 			}, 2000);
+
 		}else{
 			globalDataEmailUpdate = 'edit';
 				$(this).hide();
 				$('.sub-mdl-btn-save').show();
+				$('.delete-con').show();
 				$('.add-new-con').hide();
 				$('.contact-opt').hide();
 				$('.contact-edit').show();
@@ -708,6 +712,7 @@ $(document).ready(function(){
 		$('.contact-opt').show();
 		$('.sub-mdl-btn-edit').show();
 		$('.add-new-con').show();
+		$('.delete-con').hide();
 		$('.sub-mdl-btn-cancel').hide();
 		$('.prim-sec-rbtn').hide();
 		$('.div-anp').hide();
@@ -867,9 +872,9 @@ function updateContacInfo(tableCountToUpdate,toMake){
 		cache: false,
 		beforeSend: function(){},
 		success: function(data){
-			doModal(data);
+			$('.err-msg').fadeIn('fast').append(data);
 			setTimeout(function() {
-				$('#dynamicModal').modal('toggle');
+				$('.err-msg').hide('fast').text('');
 				$('.new-contact-mdl').modal('toggle');
 				callPrimeCon();
 				callSeconCon();
@@ -889,6 +894,7 @@ function cancelButton(){
 	$('.contact-add').hide();
 	$('.div-anp').hide();
 	$('.prim-sec-rbtn').hide();
+	$('.delete-con').hide();
 	$('.add-new-con').show();
 	$('.contact-opt').show();
 	$('.sub-mdl-btn-edit').show();
@@ -913,17 +919,3 @@ function readURL(input) {
 	}
 }	
 
-function doModal(outputMessage) {
-    html =  '<div id="dynamicModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirm-modal" aria-hidden="true">';
-    html += '<div class="modal-dialog modal-sm">';
-    html += '<div class="modal-content">';
-    html += '<div class="modal-body text-center">';
-    html += outputMessage;
-    html += '</div>';
-    html += '</div>';  // content
-    html += '</div>';  // dialog
-    html += '</div>';  // modalWindow
-		$('body').append(html);
-		$("#dynamicModal").modal();
-		$("#dynamicModal").modal('show');
- }
