@@ -116,9 +116,6 @@ $(document).ready(function(){
 					success: function(data){
 						getUserPhoto();
 						$('.mdl-preview-pic, .mdl-change-pic').modal('toggle');
-
-						
-						
 					}
 				});
 		}
@@ -505,23 +502,26 @@ $(document).ready(function(){
 							beforeSend: function(){},
 							success: function(data){
 								$('.err-msg').fadeIn('fast').append(data);
-								setTimeout(function() {
-									$('.err-msg').hide('fast').text('');
-										$('.new-contact-mdl').modal('toggle');
-										$('.add-new-inp').val('');
-										globalContactData = "6";
-										globalDataEmailUpdate = '';
-										$('.sub-mdl-btn-cancel').hide();
-										$('.contact-edit').hide();
-										$('.contact-add').hide();
-										$('.div-anp').hide();
-										$('.prim-sec-rbtn').hide();
-										$('.contact-opt').show();
-										$('.sub-mdl-btn-edit').show();
-										$('.slctCon').val('');
-										$('.edi-con-inp').val('');
-										callList();
-								}, 2000);
+									setTimeout(function() {
+										$('.err-msg').hide('fast').text('');
+											$('.add-new-inp').val('');
+											$('.sub-mdl-btn-cancel').hide();
+											$('.contact-edit').hide();
+											$('.contact-add').hide();
+											$('.div-anp').hide();
+											$('.prim-sec-rbtn').hide();
+											$('.contact-opt').show();
+											$('.sub-mdl-btn-edit').show();
+											cancelButton();
+									}, 2000);
+								//$('.new-contact-mdl').modal('toggle');
+								globalContactData = "6";
+								globalDataEmailUpdate = '';
+								$('.slctCon').val('');
+								$('.edi-con-inp').val('');
+								callPrimeCon();
+								callSeconCon();
+								callList();
 							}
 						});
 					}else{
@@ -543,25 +543,28 @@ $(document).ready(function(){
 								success: function(data){
 									var getDataResult = $.parseJSON(data);
 									$('.err-msg').fadeIn('fast').append(getDataResult.msg);
-									setTimeout(function() {
-										$('.err-msg').hide('fast').text('');
-											$('.new-contact-mdl').modal('toggle');
-											$('.div-nav-user-emaill').text(getDataResult.newEmail);
-											$('.add-new-inp').val('');
-											globalContactData = "6";
-											globalDataEmailUpdate = '';
-											$('.sub-mdl-btn-cancel').hide();
-											$('.contact-edit').hide();
-											$('.contact-add').hide();
-											$('.div-anp').hide();
-											$('.prim-sec-rbtn').hide();
-											$('.contact-opt').show();
-											$('.sub-mdl-btn-edit').show();
-											$('.slctCon').val('');
-											$('.edi-con-inp').val('');
-											$('.ordNo').prop('checked', false);	
-											callList();
-									}, 2000);
+										setTimeout(function() {
+											$('.err-msg').hide('fast').text('');
+												$('.add-new-inp').val('');
+												$('.sub-mdl-btn-cancel').hide();
+												$('.contact-edit').hide();
+												$('.contact-add').hide();
+												$('.div-anp').hide();
+												$('.prim-sec-rbtn').hide();
+												$('.contact-opt').show();
+												$('.sub-mdl-btn-edit').show();
+												$('.ordNo').prop('checked', false);	
+												cancelButton();
+										}, 1000);
+									//$('.new-contact-mdl').modal('toggle');
+									$('.div-nav-user-emaill').text(getDataResult.newEmail);
+									globalContactData = "6";
+									globalDataEmailUpdate = '';
+									$('.slctCon').val('');
+									$('.edi-con-inp').val('');
+									callPrimeCon();
+									callSeconCon();
+									callList();
 								}
 							});
 						
@@ -639,18 +642,12 @@ $(document).ready(function(){
 	
 	$('.sub-mdl-btn-edit').click(function(){
 		if ($('.slctCon').val() == ""){
-			$('.sub-mdl-btn-edit').prop('disabled', true);
-			$('.err-msg').fadeIn('fast').append('Select a contact please!');
-			setTimeout(function() {
-				$('.sub-mdl-btn-edit').prop('disabled', false);
-				$('.err-msg').hide('fast').text('');
-			}, 2000);
-
+			CallErrMsgForSelectOption();
 		}else{
 			globalDataEmailUpdate = 'edit';
 				$(this).hide();
 				$('.sub-mdl-btn-save').show();
-				$('.delete-con').show();
+				$('.sub-mdl-btn-delete').hide();
 				$('.add-new-con').hide();
 				$('.contact-opt').hide();
 				$('.contact-edit').show();
@@ -668,6 +665,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		globalDataEmailUpdate = 'new';
 		$('.sub-mdl-btn-save').show();
+		$('.sub-mdl-btn-delete').hide();
 		$('.add-new-con').hide();
 		$('.contact-opt').hide();
 		$('.contact-edit').hide();
@@ -698,7 +696,31 @@ $(document).ready(function(){
 		$('.sub-mdl-btn-save').hide();
 		callList();
 	});
-	
+
+	//delete contacts
+	$('.sub-mdl-btn-delete').click(function(){
+		if ($('.slctCon').val() == ""){
+			CallErrMsgForSelectOption();
+		}else{
+			$.ajax({
+				url: '../php/z-home/deleteContacts.php',
+				type: 'POST',
+				data: {sendUserContact: $.trim($('.slctCon').val()), sendUserId: globalSessionUserId},
+				cache: false,
+				beforeSend: function(){},
+				success: function(data){
+					$('.err-msg').fadeIn('fast').append(data);
+						setTimeout(function() {
+							$('.err-msg').hide('fast').text('');
+						}, 2000);
+						$('.btn-select-value').text('Select contact');
+						callSeconCon();
+						callList();
+				}
+			});
+		}
+	});
+
 	$(":file").filestyle({iconName: "glyphicon-picture"});
 	$(":file").filestyle({buttonText: "Select picture"});
 	$(":file").filestyle('placeholder', 'Photo');
@@ -712,7 +734,7 @@ $(document).ready(function(){
 		$('.contact-opt').show();
 		$('.sub-mdl-btn-edit').show();
 		$('.add-new-con').show();
-		$('.delete-con').hide();
+		$('.sub-mdl-btn-delete').show();
 		$('.sub-mdl-btn-cancel').hide();
 		$('.prim-sec-rbtn').hide();
 		$('.div-anp').hide();
@@ -873,14 +895,13 @@ function updateContacInfo(tableCountToUpdate,toMake){
 		beforeSend: function(){},
 		success: function(data){
 			$('.err-msg').fadeIn('fast').append(data);
-			setTimeout(function() {
-				$('.err-msg').hide('fast').text('');
-				$('.new-contact-mdl').modal('toggle');
-				callPrimeCon();
-				callSeconCon();
-				cancelButton();
-			}, 2000);
-			
+				setTimeout(function() {
+					$('.err-msg').hide('fast').text('');
+				}, 2000);
+			$('.new-contact-mdl').modal('toggle');
+			callPrimeCon();
+			callSeconCon();
+			cancelButton();
 		}
 	});
 	
@@ -894,7 +915,7 @@ function cancelButton(){
 	$('.contact-add').hide();
 	$('.div-anp').hide();
 	$('.prim-sec-rbtn').hide();
-	$('.delete-con').hide();
+	$('.sub-mdl-btn-delete').show();
 	$('.add-new-con').show();
 	$('.contact-opt').show();
 	$('.sub-mdl-btn-edit').show();
@@ -919,3 +940,11 @@ function readURL(input) {
 	}
 }	
 
+function CallErrMsgForSelectOption(){
+	$('.sub-mdl-btn-delete').prop('disabled', true);
+	$('.err-msg').fadeIn('fast').append('Select a contact please!');
+	setTimeout(function() {
+		$('.sub-mdl-btn-delete').prop('disabled', false);
+		$('.err-msg').hide('fast').text('');
+	}, 2000);
+}
