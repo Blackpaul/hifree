@@ -805,12 +805,6 @@ body, html {
 	position: relative;
 	cursor: pointer;
 }
-.delete-con {
-	top: 10px;
-	position: relative;
-	cursor: pointer;
-	display: none;
-}
 .div-anp {
 	top: 10px;
 	position: relative;
