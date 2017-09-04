@@ -64,6 +64,31 @@
 				//END POST SECTION-------------->
 
 				//USER INFO SECTION------------->
+				//delete contacts
+				public function deleteContacts($getUserId,$getUserContact){
+					$checkContactQuery = $this->db->prepare('SELECT * from tbl_userContacts where contactEmail = :getContactEmail or contactNo = :getContactNo and userId = :getId');
+					$checkContactQuery->execute(
+						array(
+							':getContactEmail' 	=>  $getUserContact,
+							':getContactNo'		=>	$getUserContact,
+							':getId'			=>	$getUserId
+						)
+					);
+
+					while($row = $checkContactQuery->fetch(PDO::FETCH_OBJ)){
+						if ($row->primaryCon == 'yes'){
+							echo "<p style='color: #ff0000;top:5px;position:relative;'>Err: primary contact can't be remove!</p>";
+						}else{
+							$deleteContactQuery = $this->db->prepare('DELETE from tbl_userContacts where contactId = :getconId');
+							$deleteContactQuery->execute(
+								array(
+									':getconId' => $row->contactId
+								)
+							);
+							echo "<p style='color: #0ae;top:5px;position:relative;'>Successfully deleted.</p>";
+						}
+					}
+				}
 				//add user photo
 				public function uploadPhoto($getUserId){
 					if($_FILES['file']['name'] != ''){
@@ -301,7 +326,7 @@
 					);
 						$rowCount = $checkLimitQuery->fetchColumn(0);
 							if ($rowCount > 5){
-								echo "<p style='color: #ff000;top:5px;position:relative;'>Maximum contact exceed!</p>";
+								echo "<p style='color: #ff0000;top:5px;position:relative;'>Err: maximum contact exceed!</p>";
 							}else{
 								if($getsaveTo == "PhoneNo"){
 									$addNewContactQuery = $this->db->prepare('INSERT into tbl_userContacts(contactNo ,userId) values (:newCon, :userId)');
@@ -330,7 +355,8 @@
 					$rowCount = $checkLimitQuery->fetchColumn(0);
 					if ($rowCount > 5){
 						$dataResult = json_encode(array(
-							'msg' => 'max contact exceed'
+							'msg' => '<p style="color: #ff0000;top:5px;position:relative;">Err: maximum contact exceed!</p>'
+
 						));
 					}else{
 						if($getTodo == 'Update'){
@@ -365,13 +391,13 @@
 										$_SESSION['loginuseremail'] = $getNewCon;
 										$dataResult = json_encode(array(
 											'newEmail' 	=> $getNewCon, 
-											'msg' => 'updated'
+											'msg' => "<p style='color: #0ae;top:5px;position:relative;'>Successfully updated</p>"
 										));
 							}
 								return $dataResult;
 						}else if($getTodo == 'PhonePrime'){
 							$dataResult = json_encode(array(
-								'msg' => 'Phone feature is not yet available'
+								'msg' => '<p style="color: #ff0000;top:5px;position:relative;">Phone feature is not yet available.</p>' 
 							));
 						}
 						else{
@@ -401,7 +427,7 @@
 											$whatOrdNo = 'Secondary';
 											$executeQuery = $this->callInsertQuery($getNewCon,$getuserid,$toSave,$whatOrdNo);
 												$dataResult = json_encode(array(
-													'msg' => 'Inserted'
+													'msg' => '<p style="color: #0ae;top:5px;position:relative;">Inserted</p>'
 												));
 										}
 							}else{
@@ -430,7 +456,7 @@
 											$whatOrdNo = 'Secondary';
 											$executeQuery = $this->callInsertQuery($getNewCon,$getuserid,$toSave,$whatOrdNo);
 												$dataResult = json_encode(array(
-													'msg' => 'Inserted'
+													'msg' => '<p style="color: #0ae;top:5px;position:relative;">Inserted</p>'
 												));
 										}
 							}	
