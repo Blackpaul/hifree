@@ -1,7 +1,15 @@
 $(document).ready(function(){
-	//start validation 
+	
 	resetRegForm();
 
+		//keypress enter key
+		$(document).keypress(function(e) {
+			if(e.which == 13) {
+				$('.div-logreg-button-i').click();
+			}
+		});
+
+	//start validation 
 	$("#signupForm").validate({
 		rules: {
 			txtusername: {
