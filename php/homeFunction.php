@@ -40,6 +40,7 @@
 								':getId' => $row->userId,
 							)
 						);
+							 
 							$username = $getUsername->fetchColumn();
 							$Photo = $displayUserPhotoQuery->fetchColumn();
 							$dt = new DateTime($row->postDate);
@@ -54,7 +55,7 @@
 						
 					
 						echo "<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 div-display-post'>";
-						echo  	"<div class='div-display-action'><i class='pull-right glyphicon glyphicon-chevron-down php-user-arrow'  id='".$row->postId."' style='color: #000;cursor:pointer;position:absolute;z-index:1;'></i></div>";
+						echo  	"<div class='div-display-action'><i class='pull-right glyphicon glyphicon-chevron-down php-user-arrow' name='".$row->userId."' id='".$row->postId."'></i></div>";
 						echo 	"<div class='col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-2 div-display-pic'>"; 
 						echo 		$divPictureOption;
 						echo 		"<div class='div-display-pic-img-main' style='background-image: url(".$Photo.");background-position:center;background-repeat:no-repeat;background-size:cover;'></div>";
@@ -71,14 +72,29 @@
 
 				//javascript function
 				public function dynamicScript(){
-					$UserId = $_SESSION['loginuserid'];
+					//if ($_SESSION['clientPostUserId'] == $_SESSION['loginuserid']) {
+						$sessLogId = $_SESSION['loginuserid'];
+					
+					
 						echo '<script type="text/javascript">';	//----->start script
 						echo '$(document).ready(function(){';	//----->start document ready
-						echo 	'$(".php-user-arrow").click(function(){';	
+						echo 	'$(".php-user-arrow").click(function(){';	//arrow action start
 						echo 		'$(".kanitext").val($(this).attr("id"));';
-						echo 		'$(".div-post-action").css({top: event.clientY, left: event.clientX}).show();';					
-						echo		'$(".div-post-action").css({"left": "-=200px", "top": "+=10px"});';
-						echo 	'});';		
+						echo 		'var userId = $(this).attr("name");';
+						echo 		'var sessionLogId = '.$sessLogId.';';	
+						echo 			'if (userId == sessionLogId){';				
+						echo 				'var alist = "<ul><li><a class=hide-your-post-action href=>Hide your post</a></li></ul>";';					
+						echo 			'}else{';				
+						echo 				'var alist = "<ul><li><a class=unfollow-action href=>Unfollow</a></li><li><a class=hide-post-action href=>Hide post</a></li></ul>";';					
+						echo 			'}';							
+						echo 			'$(".div-post-action").css({top: event.clientY, left: event.clientX}).show();';					
+						echo			'$(".div-post-action").css({"left": "-=120px", "top": "+=15px"});';
+						echo			'$(".div-post-action").empty().append(alist);';
+						echo 	'});';	//arrow action end
+						echo 	'$(".hide-your-post-action").click(function(event){'; //hide your post on arrow action start
+						echo 		'event.preventDefault();';			
+						echo 			'alert("testing");';				
+						echo 	'});';	//hide your post on arrow action end
 						echo '});';		  //----->end document ready
 						echo '</script>'; //----->end script
 				}
