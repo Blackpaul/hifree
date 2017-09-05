@@ -853,20 +853,20 @@ body, html {
 	margin-top: 10px;
 	border-radius: 5px;
 }
-.post-option {
-	top: 30px;
-	right: 2.5%;
-	width: 115px;
-	height: auto;
-	background-color: #b2b2b2;
-	position:absolute;
-	padding-top: 10px;
-	padding-left: 10px;
-	border-radius:5px;
+.php-user-arrow {
+	right: -5px;
+	font-size: 11px;
+	color: #000;
+	cursor: pointer;
+	position: absolute;
+	z-index: 1;
 }
-.action-ul {
-	padding: 0 !important;
+.div-post-action ul {
+	padding-left: 10px !important;
 	list-style-type: none;
+}
+.div-post-action ul li a {
+	color : #fff !important;
 }
 .div-display-post:last-child:after { 
 	top: 10px;
