@@ -853,7 +853,21 @@ body, html {
 	margin-top: 10px;
 	border-radius: 5px;
 }
-
+.post-option {
+	top: 30px;
+	right: 2.5%;
+	width: 115px;
+	height: auto;
+	background-color: #b2b2b2;
+	position:absolute;
+	padding-top: 10px;
+	padding-left: 10px;
+	border-radius:5px;
+}
+.action-ul {
+	padding: 0 !important;
+	list-style-type: none;
+}
 .div-display-post:last-child:after { 
 	top: 10px;
 	position: relative;
