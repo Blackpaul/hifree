@@ -18,8 +18,12 @@
 						)
 					);
 				}
+
+
 				//display user post
 				public function displayPostfunction(){
+					$dynamicScriptCall = $this->dynamicScript();
+
 					$displayPostQuery = $this->db->prepare('SELECT * from tbl_userPost order by postId desc');
 					$displayPostQuery->execute();
 					$i = 0;
@@ -46,8 +50,11 @@
 								}else{
 									$divPictureOption = "<div class='div-display-pic-img' ></div>";
 								}
+
+						
+					
 						echo "<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 div-display-post'>";
-						echo  	"<div class='div-display-action'><i class='pull-right glyphicon glyphicon-chevron-down' style='color: #000;'></i></div>";
+						echo  	"<div class='div-display-action'><i class='pull-right glyphicon glyphicon-chevron-down php-user-arrow'  id='".$row->postId."' style='color: #000;cursor:pointer;position:absolute;z-index:1;'></i></div>";
 						echo 	"<div class='col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-2 div-display-pic'>"; 
 						echo 		$divPictureOption;
 						echo 		"<div class='div-display-pic-img-main' style='background-image: url(".$Photo.");background-position:center;background-repeat:no-repeat;background-size:cover;'></div>";
@@ -61,6 +68,21 @@
 						
 					}
 				}
+
+				//javascript function
+				public function dynamicScript(){
+					$UserId = $_SESSION['loginuserid'];
+						echo '<script type="text/javascript">';	//----->start script
+						echo '$(document).ready(function(){';	//----->start document ready
+						echo 	'$(".php-user-arrow").click(function(){';	
+						echo 		'$(".kanitext").val($(this).attr("id"));';
+						echo 		'$(".div-post-action").css({top: event.clientY, left: event.clientX}).show();';					
+						echo		'$(".div-post-action").css({"left": "-=200px", "top": "+=10px"});';
+						echo 	'});';		
+						echo '});';		  //----->end document ready
+						echo '</script>'; //----->end script
+				}
+
 				//END POST SECTION-------------->
 
 				//USER INFO SECTION------------->
@@ -658,6 +680,8 @@
 					
 				}
 				//END USER INFO SECTION------------->
+
+				
 
 			
 	}	
