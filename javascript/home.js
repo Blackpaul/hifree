@@ -23,6 +23,19 @@ $(document).ready(function(){
 //		}
 //	});
 	
+	//scrollong event
+	document.addEventListener('scroll', function (event) {
+		if (event.target.id === 'scrollbar-id') {       
+			$('.div-post-action').hide();
+		}
+	}, true );
+	//body click event
+	$('body').click(function(evt){    
+		if(!$(evt.target).is('.php-user-arrow')) {
+    		$('.div-post-action').hide();
+ 		}
+	});
+
 	//offcanvas 
 	$('.side-bar-button').click(function(){
 		$('.side-nav').toggleClass('side-nav-view');
@@ -39,6 +52,7 @@ $(document).ready(function(){
 		if ($(window).width() > 768) {
 			$('.side-nav').removeClass('side-nav-view');
 		}
+		$('.div-post-action').hide();
 	});
 
 	$('.eraseDummySession').click(function(){
@@ -721,6 +735,7 @@ $(document).ready(function(){
 		}
 	});
 
+	
 	$(":file").filestyle({iconName: "glyphicon-picture"});
 	$(":file").filestyle({buttonText: "Select picture"});
 	$(":file").filestyle('placeholder', 'Photo');
