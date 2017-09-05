@@ -861,6 +861,15 @@ body, html {
 	position: absolute;
 	z-index: 1;
 }
+.div-post-action {
+	width: 120px;
+	background-color: #0ae;
+	position: absolute;
+	z-index: 99;
+	display: none;
+	padding-top: 10px;
+	border-radius: 5px;
+}
 .div-post-action ul {
 	padding-left: 10px !important;
 	list-style-type: none;
