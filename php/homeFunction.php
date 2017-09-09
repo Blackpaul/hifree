@@ -101,6 +101,7 @@
 
 				//END POST SECTION-------------->
 
+				//display online user
 				public function displayOnlineUser(){
 					$displayOnlineUserQuery = $this->db->prepare('SELECT (tbl_user.userName) as username,(tbl_user.userId) as ownId from tbl_user inner join tbl_loginHistory on tbl_user.userId = tbl_loginHistory.userId where tbl_loginHistory.loginStatus = :status and not tbl_user.userId = :ownId order by tbl_user.userName');
 					$displayOnlineUserQuery->execute(
@@ -123,6 +124,19 @@
 							echo "</div>";
 					}
 				}
+				//end display online user
+
+				public function updateLoginHistory(){
+					$updateLoginHistoryQuery = $this->db->prepare('UPDATE tbl_loginHistory set loginStatus = :getStatus where userId = :getId');
+					$updateLoginHistoryQuery->execute(
+						array(
+							':getStatus'	=> ' ',
+							':getId'		=> $_SESSION['loginuserid']
+						)
+					);
+				}
+
+
 
 				//USER INFO SECTION------------->
 				//delete contacts
