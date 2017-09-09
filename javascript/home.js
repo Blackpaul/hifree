@@ -829,9 +829,9 @@ function refreshdiv() {
 
 function displayOnlineUser() {
 		setTimeout(function(){
-			$('.online-user').load('../php/z-home/displayOnlineUser.php').fadeIn("slow");
-			refreshdiv();
-		}, 3000);
+			$('.online-user').load('../php/z-home/displayOnlineUser.php').fadeIn();
+			displayOnlineUser();
+		}, 1000);
 }
 
 function callList(){
