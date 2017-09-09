@@ -328,6 +328,7 @@ body, html {
 	background: #fff;
 	height: 30px;
 	line-height: 2.2;
+	font-weight: bold;
 }
 .div-inner-content-sub {
 	width: 100%;
@@ -901,7 +902,9 @@ body, html {
 	width: 82%;
 	height: 90%;
 	position: relative;
-
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 .div-display-nameDate {
 	height: 50px;
@@ -930,4 +933,39 @@ body, html {
 	padding-top: 1% !important;
 	padding-bottom: 1% !important;
 	color: #000;
+}
+
+/** display online user here *****************/
+.online-user {
+	top: -10px;
+	height: 100%;
+	position: relative;
+	background-color: #fff;
+}
+.div-display-user {
+	top: 10px;
+	margin-top: 5px;
+	height: 35px;
+	position: relative;
+}
+.div-display-user-img {
+	top:3px;
+	width:30px;
+	height:30px;
+	position: relative;
+	border-radius: 50%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.div-display-user p {
+	top: 6px;
+	left: 5px;
+	font-size: 15px;
+	color: #0b2428;
+	position: relative;
+}
+
+.div-display-user:hover {
+	background-color: rgba(11, 36, 40, .1);
 }
