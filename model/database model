@@ -1,5 +1,12 @@
 create database hifree;
 
+create table tbl_loginHistory(
+	loginId int primary key auto_increment,
+	loginStatus varchar(10) default null,
+	userId varchar(10) default null,
+	loginDate timestamp not null default current_timestamp
+);
+
 create table tbl_user(
 	userId int primary key auto_increment,
 	userName varchar(20) default null,
