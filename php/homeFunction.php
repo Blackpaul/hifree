@@ -102,7 +102,16 @@
 				//END POST SECTION-------------->
 
 				public function displayOnlineUser(){
-					
+					$displayOnlineUserQuery = $this->db->prepare('SELECT (tbl_user.userName) as username, (tbl_userPhoto.photoName) as photo FROM tbl_user INNER JOIN tbl_loginHistory ON tbl_loginHistory.userId = tbl_user.userId INNER JOIN tbl_userPhoto ON tbl_userPhoto.userId = tbl_user.userId where tbl_loginHistory.loginStatus = :status and not tbl_user.userId = :ownId order by tbl_user.userName,tbl_userPhoto.photoId DESC limit 1');
+					$displayOnlineUserQuery->execute(
+						array(
+							':status'	=>	'online',
+							':ownId'	=>	$_SESSION['loginuserid']
+						)
+					);
+					while($row = $displayOnlineUserQuery->fetch(PDO::FETCH_OBJ)){
+						echo $row->username;
+					}
 				}
 
 				//USER INFO SECTION------------->
