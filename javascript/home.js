@@ -16,6 +16,13 @@ $(document).ready(function(){
 	getUserPhoto();
 	refreshdiv();
 	displayOnlineUser();
+	goOnline();
+
+	window.addEventListener("beforeunload", function (e) {
+    	goOffline();    
+    	return showADialog(e);  
+	});
+
 
 //keypress enter key
 //	$(document).keypress(function(e) {
@@ -970,5 +977,32 @@ function CallErrMsgForSelectOption(){
 		$('.sub-mdl-btn-delete').prop('disabled', false);
 		$('.err-msg').hide('fast').text('');
 	}, 2000);
+}
+
+function goOnline(){
+	$.ajax({
+		url: '../php/z-home/displayOnline.php',
+		type: 'get',
+		cache: false,
+		async: false,
+		success: function(data){}
+	});
+}
+
+function goOffline(){
+	$.ajax({
+		url: '../php/z-home/displayOffline.php',
+		type: 'get',
+		cache: false,
+		async: false,
+		success: function(data){}
+	});
+}
+
+function showADialog(e){
+    var confirmationMessage = 'Your message here';
+    //some of the older browsers require you to set the return value of the event
+    (e || window.event).returnValue = confirmationMessage;     // Gecko and Trident
+    return confirmationMessage;                                // Gecko and WebKit
 }
 
