@@ -126,6 +126,7 @@
 				}
 				//end display online user
 
+				//go offline
 				public function updateLoginHistory(){
 					$updateLoginHistoryQuery = $this->db->prepare('UPDATE tbl_loginHistory set loginStatus = :getStatus where userId = :getId');
 					$updateLoginHistoryQuery->execute(
@@ -136,6 +137,20 @@
 					);
 				}
 
+				//go online again
+				public function goOnlineAgain(){
+					if ($_SESSION['loginuserid'] != ''){
+						$updateLoginHistoryQuery = $this->db->prepare('UPDATE tbl_loginHistory set loginStatus = :getStatus where userId = :getId');
+						$updateLoginHistoryQuery->execute(
+							array(
+								':getStatus'	=> 'online',
+								':getId'		=> $_SESSION['loginuserid']
+							)
+						);
+					}else{
+						echo "walai solod";
+					}
+				}
 
 
 				//USER INFO SECTION------------->

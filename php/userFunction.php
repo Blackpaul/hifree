@@ -96,6 +96,7 @@ include 'databaseConnection.php';
 					$_SESSION['loginuserid'] = $row->userId;
 						$primEmail = "yes";
 						$addToContact = addToContactsAsPrimary($row->userEmail,$primEmail,$row->userId);
+						$inserToHistory = insertToLoginHistory($row->userId);
 					$msg = "verified";
 				}else {
 					$msg = "Invalid verification code! Check your email address.";
