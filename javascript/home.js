@@ -18,9 +18,8 @@ $(document).ready(function(){
 	displayOnlineUser();
 	goOnline();
 
-	window.addEventListener("beforeunload", function (e) {
+	window.addEventListener("beforeunload", function (event) {
     	goOffline();    
-    	return showADialog(e);  
 	});
 
 
@@ -999,10 +998,4 @@ function goOffline(){
 	});
 }
 
-function showADialog(e){
-    var confirmationMessage = 'Your message here';
-    //some of the older browsers require you to set the return value of the event
-    (e || window.event).returnValue = confirmationMessage;     // Gecko and Trident
-    return confirmationMessage;                                // Gecko and WebKit
-}
 
