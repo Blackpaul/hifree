@@ -101,6 +101,10 @@
 
 				//END POST SECTION-------------->
 
+				public function displayOnlineUser(){
+					
+				}
+
 				//USER INFO SECTION------------->
 				//delete contacts
 				public function deleteContacts($getUserId,$getUserContact){

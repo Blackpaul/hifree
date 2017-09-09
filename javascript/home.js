@@ -15,6 +15,7 @@ $(document).ready(function(){
 	getUserId();
 	getUserPhoto();
 	refreshdiv();
+	displayOnlineUser();
 
 //keypress enter key
 //	$(document).keypress(function(e) {
@@ -824,6 +825,13 @@ function refreshdiv() {
 			$('.all-post').load('../php/z-home/displayPost.php').fadeIn("slow");
 			refreshdiv();
 		}, 1000);
+}
+
+function displayOnlineUser() {
+		setTimeout(function(){
+			$('.online-user').load('../php/z-home/displayOnlineUser.php').fadeIn("slow");
+			refreshdiv();
+		}, 3000);
 }
 
 function callList(){
