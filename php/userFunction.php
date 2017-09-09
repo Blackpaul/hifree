@@ -19,6 +19,7 @@ include 'databaseConnection.php';
 						$_SESSION['loginusername'] = $row->userName;
 						$_SESSION['loginuserid'] = $row->userId;
 						$msg = "success";
+							$inserToHistory = insertToLoginHistory($row->userId);
 					}else{
 						$msg = json_encode(array(
 							'username' 	=> $row->userName, 
@@ -283,6 +284,35 @@ include 'databaseConnection.php';
 				} else {
 					echo "true";
 				}
+	}
+
+	function insertToLoginHistory($getUuserId){
+		global $connect;
+			$checkExistingHistory = $connect->prepare('SELECT * from tbl_loginHistory where userId = :getId');
+			$checkExistingHistory->execute(
+				array(
+					':getId'	=>	$getUuserId
+				)
+			);
+			$row = $checkExistingHistory->rowcount();
+			if($row > 0){
+				$updateToLoginHistory = $connect->prepare('UPDATE tbl_loginHistory set loginStatus = :getStatus where userId = :getUserId');
+				$updateToLoginHistory->execute(
+					array(
+						':getStatus' => 'online', 
+						':getUserId' => $getUuserId
+					)
+				);
+			}else{
+				$insertToLoginHistory = $connect->prepare('INSERT into tbl_loginHistory(loginStatus,userId) values (:getStatus,:getUserId)');
+				$insertToLoginHistory->execute(
+					array(
+						':getStatus' => 'online', 
+						':getUserId' => $getUuserId
+					)
+				);
+			}
+
 	}
 	
 
