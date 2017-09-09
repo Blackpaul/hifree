@@ -971,3 +971,4 @@ function CallErrMsgForSelectOption(){
 		$('.err-msg').hide('fast').text('');
 	}, 2000);
 }
+
