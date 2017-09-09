@@ -58,7 +58,7 @@
 						echo  	"<div class='div-display-action'><i class='pull-right glyphicon glyphicon-chevron-down php-user-arrow' name='".$row->userId."' id='".$row->postId."'></i></div>";
 						echo 	"<div class='col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-2 div-display-pic'>"; 
 						echo 		$divPictureOption;
-						echo 		"<div class='div-display-pic-img-main' style='background-image: url(".$Photo.");background-position:center;background-repeat:no-repeat;background-size:cover;'></div>";
+						echo 		"<div class='div-display-pic-img-main' style='background-image: url(".$Photo.");'></div>";
 						echo 	"</div>";
 						echo 	"<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 div-display-nameDate'>";
 						echo  		"<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 div-display-name'>&nbsp" . $username ."</div>";			
@@ -102,7 +102,7 @@
 				//END POST SECTION-------------->
 
 				public function displayOnlineUser(){
-					$displayOnlineUserQuery = $this->db->prepare('SELECT (tbl_user.userName) as username, (tbl_userPhoto.photoName) as photo FROM tbl_user INNER JOIN tbl_loginHistory ON tbl_loginHistory.userId = tbl_user.userId INNER JOIN tbl_userPhoto ON tbl_userPhoto.userId = tbl_user.userId where tbl_loginHistory.loginStatus = :status and not tbl_user.userId = :ownId order by tbl_user.userName,tbl_userPhoto.photoId DESC limit 1');
+					$displayOnlineUserQuery = $this->db->prepare('SELECT (tbl_user.userName) as username,(tbl_user.userId) as ownId from tbl_user inner join tbl_loginHistory on tbl_user.userId = tbl_loginHistory.userId where tbl_loginHistory.loginStatus = :status and not tbl_user.userId = :ownId order by tbl_user.userName');
 					$displayOnlineUserQuery->execute(
 						array(
 							':status'	=>	'online',
@@ -110,7 +110,17 @@
 						)
 					);
 					while($row = $displayOnlineUserQuery->fetch(PDO::FETCH_OBJ)){
-						echo $row->username;
+						$displayUserPhotoQuery = $this->db->prepare('SELECT photoName from tbl_userPhoto where userId = :getId order by photoId desc limit 1');
+						$displayUserPhotoQuery->execute(
+							array(
+								':getId' => $row->ownId,
+							)
+						);
+						$Photo = $displayUserPhotoQuery->fetchColumn();
+							echo "<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 div-display-user'>";
+							echo 	"<div class='div-display-user-img pull-left' style='background-image: url(".$Photo.");'></div>";
+							echo 	"<p>".ucfirst($row->username)."</p>";
+							echo "</div>";
 					}
 				}
 
