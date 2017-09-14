@@ -305,6 +305,8 @@ body, html {
 	overflow-y: scroll;
 }
 .div-shortcuts {
+	overflow-y: hidden;
+	height: 100%;
 	padding: 0 !important;
 	background-color: rgba(11, 36, 40, 0);
 	z-index: 10; 
@@ -317,10 +319,12 @@ body, html {
 	line-height: 2.2;
 }
 .div-online-contacts {
+	overflow-y: hidden;
 	height: 100%;
 	padding: 0 !important;
 	background-color: rgba(65, 105, 225, 0);
 	z-index: 10;
+	overflow-x: hidden !important;
 }
 .online-contacts-title {
 	width: 100%;
@@ -938,9 +942,16 @@ body, html {
 /** display online user here *****************/
 .online-user {
 	top: -10px;
+	width: 103%;
 	height: 100%;
 	position: relative;
 	background-color: #fff;
+	overflow-x: hidden !important;
+	overflow-y: scroll;
+	padding-bottom: 100% !important;
+}
+.online-user:last-child:after{
+	padding-bottom: 150% !important;
 }
 .div-display-user {
 	top: 10px;
