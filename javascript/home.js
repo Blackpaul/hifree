@@ -1010,7 +1010,6 @@ function testing(id, name){
 	var chatbox = 	"<div class='chatboxDiv text-center' name='"+id+"' id='"+id+"' style='margin-left:5px;position:relative;width:250px;height:100%;border:solid 1px red;display:inline-block;background-color:blue;'>";
 		chatbox +=	"<input type='button' value='"+id+"' id='"+id+"' class='chatX'>"
 		chatbox +=	"</div>";
-	
 
 	if ( !$('.chatBox').find('#' + id).length) {
     	$(".chatBox").prepend(chatbox);
