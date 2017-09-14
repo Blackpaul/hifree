@@ -21,8 +21,9 @@ $(document).ready(function(){
 	window.addEventListener("beforeunload", function (event) {
     	goOffline();    
 	});
-
-
+	
+	
+	
 //keypress enter key
 //	$(document).keypress(function(e) {
 //		if(e.which == 13) {
@@ -787,6 +788,13 @@ $(document).ready(function(){
 		$('#2').css({'color':'#fff'});
 	});
 	//end when modal hide
+
+
+	$(document).on('click', '.chatX', function () {
+		var chatboxId = $(this).attr("id");
+    	$('.chatBox > [name="'+chatboxId+'"]').remove();
+    	
+	});
 });
 
 
@@ -999,5 +1007,13 @@ function goOffline(){
 }
 
 function testing(id, name){
-	alert(id + " " + name);
+	var chatbox = 	"<div class='chatboxDiv text-center' name='"+id+"' id='"+id+"' style='margin-left:5px;position:relative;width:250px;height:100%;border:solid 1px red;display:inline-block;background-color:blue;'>";
+		chatbox +=	"<input type='button' value='"+id+"' id='"+id+"' class='chatX'>"
+		chatbox +=	"</div>";
+	
+
+	if ( !$('.chatBox').find('#' + id).length) {
+    	$(".chatBox").prepend(chatbox);
+	}
 }
+
