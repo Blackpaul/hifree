@@ -305,7 +305,6 @@ body, html {
 	overflow-y: scroll;
 }
 .div-shortcuts {
-	height: 96.2%;
 	padding: 0 !important;
 	background-color: rgba(11, 36, 40, 0);
 	z-index: 10; 
@@ -318,7 +317,7 @@ body, html {
 	line-height: 2.2;
 }
 .div-online-contacts {
-	height: 96.2%;
+	height: 100%;
 	padding: 0 !important;
 	background-color: rgba(65, 105, 225, 0);
 	z-index: 10;
