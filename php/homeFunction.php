@@ -95,6 +95,9 @@
 						echo 		'event.preventDefault();';			
 						echo 			'alert("testing");';				
 						echo 	'});';	//hide your post on arrow action end
+						echo 	'$(".clickName").click(function(){';	
+						echo 		'testing($(this).attr("id"), $(this).attr("name"));';						
+						echo 	'});';			
 						echo '});';		  //----->end document ready
 						echo '</script>'; //----->end script
 				}
@@ -103,6 +106,7 @@
 
 				//display online user
 				public function displayOnlineUser(){
+					$dynamicScriptCall = $this->dynamicScript();
 					$displayOnlineUserQuery = $this->db->prepare('SELECT (tbl_user.userName) as username,(tbl_user.userId) as ownId from tbl_user inner join tbl_loginHistory on tbl_user.userId = tbl_loginHistory.userId where tbl_loginHistory.loginStatus = :status and not tbl_user.userId = :ownId order by tbl_user.userName');
 					$displayOnlineUserQuery->execute(
 						array(
@@ -120,7 +124,7 @@
 						$Photo = $displayUserPhotoQuery->fetchColumn();
 							echo "<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 div-display-user'>";
 							echo 	"<div class='div-display-user-img pull-left' style='background-image: url(".$Photo.");'></div>";
-							echo 	"<p>".ucfirst($row->username)."</p>";
+							echo 	"<p class='clickName' id='".$row->username."' name='".$row->username."'>".ucfirst($row->username)."</p>";
 							echo "</div>";
 					}
 				}

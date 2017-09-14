@@ -998,4 +998,6 @@ function goOffline(){
 	});
 }
 
-
+function testing(id, name){
+	alert(id + " " + name);
+}
