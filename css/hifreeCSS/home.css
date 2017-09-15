@@ -958,6 +958,7 @@ body, html {
 	margin-top: 5px;
 	height: 35px;
 	position: relative;
+	cursor: pointer;
 }
 .div-display-user-img {
 	top:3px;
