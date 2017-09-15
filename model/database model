@@ -56,7 +56,7 @@ create table tbl_privateChat(
 	privateMsg text default null,
 	userId1 varchar(10) default null,
 	userId2 varchar(10) default null,
-	commentDate timestamp not null default current_timestamp
+	privateChatDate timestamp not null default current_timestamp
 );
 
 create table tbl_comment(
