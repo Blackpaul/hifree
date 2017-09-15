@@ -96,7 +96,7 @@
 						echo 			'alert("testing");';				
 						echo 	'});';	//hide your post on arrow action end
 						echo 	'$(".clickName").click(function(){';	
-						echo 		'testing($(this).attr("id"), $(this).attr("name"));';						
+						echo 		'createChatbox($(this).attr("id"), $(this).attr("name"));';						
 						echo 	'});';			
 						echo '});';		  //----->end document ready
 						echo '</script>'; //----->end script
