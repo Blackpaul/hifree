@@ -51,6 +51,14 @@ create table tbl_userPost(
 	postDate timestamp not null default current_timestamp
 );
 
+create table tbl_privateChat(
+	privateChatId int primary key auto_increment,
+	privateMsg text default null,
+	userId1 varchar(10) default null,
+	userId2 varchar(10) default null,
+	commentDate timestamp not null default current_timestamp
+);
+
 create table tbl_comment(
 	commentId int primary key auto_increment,
 	commentMsg text default null,
@@ -58,4 +66,5 @@ create table tbl_comment(
 	userId varchar(10) default null,
 	commentDate timestamp not null default current_timestamp
 );
+
 
