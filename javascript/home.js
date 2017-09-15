@@ -790,11 +790,20 @@ $(document).ready(function(){
 	//end when modal hide
 
 
+	//chatbox function
 	$(document).on('click', '.chatX', function () {
 		var chatboxId = $(this).attr("id");
-    	$('.chatBox > [name="'+chatboxId+'"]').remove();
-    	
+		$('.chatBox > [name="'+chatboxId+'"]').remove();
 	});
+
+	$(document).on('keyup', '.private-msg-text', function (event) {
+		if (event.keyCode == 13) {
+			if($(this).val() != ""){
+				alert($(this).val());
+			}
+		}
+	});
+
 });
 
 
@@ -1006,13 +1015,20 @@ function goOffline(){
 	});
 }
 
-function testing(id, name){
-	var chatbox = 	"<div class='chatboxDiv text-center' name='"+id+"' id='"+id+"' style='margin-left:5px;position:relative;width:250px;height:100%;border:solid 1px red;display:inline-block;background-color: #0ae;'>";
-		chatbox +=	"<button type='button' id='"+id+"' class='chatX' style='background: none;border:none;'><i class='glyphicon glyphicon-remove'></i></button>"
-		chatbox +=	"</div>";
+function createChatbox(id, name){
+	var chatbox = 	"<div class='chatboxDiv text-center' name='"+id+"' id='"+id+"'>"; //start parent div
+		chatbox +=		"<div class='chatbox-div-header'>"; //start child div header
+		chatbox +=			"<p class='pull-left'>"+name+"</p>";
+		chatbox +=			"<button type='button' id='"+id+"' class='chatX pull-right'><i class='glyphicon glyphicon-remove'></i></button>"	
+		chatbox +=		"</div>"; //end child div header
+		chatbox +=		"<div class='private-msg'>";  //start child div body privatemsg
+		chatbox +=		"</div>"; //end child div body privatemsg
+		chatbox +=		"<input type='text' class='private-msg-text' placeholder='Input message here.'>"; 
+		chatbox +=	"</div>"; //end parent div
 
 	if ( !$('.chatBox').find('#' + id).length) {
     	$(".chatBox").prepend(chatbox);
+    	 $(".private-msg-text").focus();
 	}
 }
 
