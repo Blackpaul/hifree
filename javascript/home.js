@@ -1027,12 +1027,7 @@ function goOffline(){
 }
 
 
-function displayPrivateChat() {
-		setTimeout(function(){
-			$('.private-msg').load('../php/z-home/displayPrivateChat.php').fadeIn();
-			displayPrivateChat();
-		}, 1000);
-}
+
 
 function createChatbox(id, name, userId){
 	//id = online user id
@@ -1050,8 +1045,18 @@ function createChatbox(id, name, userId){
 	if (!$('.chatBox').find('#' + id).length) {
     	$(".chatBox").prepend(chatbox);
 		$(".private-msg-text").focus();
+			$.ajax({
+				url: '../php/z-home/displayPrivateChat.php',
+				type: 'POST',
+				data: {sendOnlineId: id, sendUserId : userId},
+				cache: false,
+				beforeSend: function(){},
+				success: function(data){
+					$('.private-msg').append(data);
+					
+				}
+			});
 			
-			displayPrivateChat()
 
 	}
 }

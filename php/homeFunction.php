@@ -171,11 +171,14 @@
 
 				//display private chat
 				public function displayPrivateChat($getOnlineId,$getUsereId){
-					$displayPrivateChatQuery = $this->db->prepare('select privateMsg from tbl_privateChat where (onlineId = :getOnlineId or onlineId = :getOnlineId) and (userId = :getUsereId or userId = :getUsereId)');
+					$displayPrivateChatQuery = $this->db->prepare('select privateMsg from tbl_privateChat where 
+						(onlineId = :getOnlineId or onlineId = :getInverseOnlineId) and (userId = :getUsereId or userId = :getInverseUsereId)');
 					$displayPrivateChatQuery->execute(
 						array(
-							':getOnlineId'	=> $getOnlineId, 
-							':getUsereId'	=> $getUsereId
+							':getOnlineId'			=> $getOnlineId, 
+							':getInverseOnlineId'	=> $getUsereId, 
+							':getUsereId'			=> $getOnlineId,
+							':getInverseUsereId'	=> $getUsereId
 						)
 					);
 

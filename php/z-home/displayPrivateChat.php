@@ -1,8 +1,8 @@
 <?php  
 error_reporting(0);
 	include '../databaseConnection.php';
-		$getOnlineId = 8;
-		$getUsereId = 7;
+		$getOnlineId = $_POST['sendOnlineId'];
+		$getUsereId = $_POST['sendUserId'];
 
 			echo $chome->displayPrivateChat($getOnlineId,$getUsereId);
 ?>
