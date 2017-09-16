@@ -96,7 +96,7 @@
 						echo 			'alert("testing");';				
 						echo 	'});';	//hide your post on arrow action end
 						echo 	'$(".clickName").click(function(){';	
-						echo 		'createChatbox($(this).attr("id"), $(this).attr("name"));';						
+						echo 		'createChatbox($(this).attr("id"), $(this).attr("name"),'.$_SESSION['loginuserid'].');';						
 						echo 	'});';			
 						echo '});';		  //----->end document ready
 						echo '</script>'; //----->end script
@@ -121,10 +121,11 @@
 								':getId' => $row->ownId,
 							)
 						);
+
 						$Photo = $displayUserPhotoQuery->fetchColumn();
 							echo "<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 div-display-user'>";
 							echo 	"<div class='div-display-user-img pull-left' style='background-image: url(".$Photo.");'></div>";
-							echo 	"<p class='clickName' id='".$row->username."' name='".$row->username."'>".ucfirst($row->username)."</p>";
+							echo 	"<p class='clickName' id='".$row->ownId."' name='".$row->username."'>".ucfirst($row->username)."</p>";
 							echo "</div>";
 					}
 				}
@@ -156,6 +157,32 @@
 					}
 				}
 
+				//private Msg
+				public function privateMsg($getOnlineId,$getUsereId,$getSendMsg){
+					$insertPrivateMsgQuery = $this->db->prepare('INSERT into tbl_privateChat(privateMsg,onlineId,userId) values (:getPrivateMsg, :getOnlineId, :getUsereId)');
+					$insertPrivateMsgQuery->execute(
+						array(
+							':getPrivateMsg'	=> $getSendMsg,
+							':getOnlineId'		=> $getOnlineId,
+							':getUsereId'		=> $getUsereId
+						)
+					);
+				}
+
+				//display private chat
+				public function displayPrivateChat($getOnlineId,$getUsereId){
+					$displayPrivateChatQuery = $this->db->prepare('select privateMsg from tbl_privateChat where (onlineId = :getOnlineId or onlineId = :getOnlineId) and (userId = :getUsereId or userId = :getUsereId)');
+					$displayPrivateChatQuery->execute(
+						array(
+							':getOnlineId'	=> $getOnlineId, 
+							':getUsereId'	=> $getUsereId
+						)
+					);
+
+					while($row = $displayPrivateChatQuery->fetch(PDO::FETCH_OBJ)){
+						echo 	"<p style='width:100%;height:25px;border:solid 1px red;'>".$row->privateMsg."</p>";
+					}
+				}
 
 				//USER INFO SECTION------------->
 				//delete contacts

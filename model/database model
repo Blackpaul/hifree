@@ -54,8 +54,8 @@ create table tbl_userPost(
 create table tbl_privateChat(
 	privateChatId int primary key auto_increment,
 	privateMsg text default null,
-	userId1 varchar(10) default null,
-	userId2 varchar(10) default null,
+	onlineId varchar(10) default null,
+	userId varchar(10) default null,
 	privateChatDate timestamp not null default current_timestamp
 );
 

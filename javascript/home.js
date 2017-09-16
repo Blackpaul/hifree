@@ -17,7 +17,7 @@ $(document).ready(function(){
 	refreshdiv();
 	displayOnlineUser();
 	goOnline();
-
+	
 	window.addEventListener("beforeunload", function (event) {
     	goOffline();    
 	});
@@ -799,7 +799,18 @@ $(document).ready(function(){
 	$(document).on('keyup', '.private-msg-text', function (event) {
 		if (event.keyCode == 13) {
 			if($(this).val() != ""){
-				alert($(this).val());
+				var onlineId = $(this).attr("id");
+				var userId = $(this).attr("name");
+					$.ajax({
+						url: '../php/z-home/privateMsg.php',
+						type: 'POST',
+						data: {sendOnlineId: onlineId, sendUserId: userId, sendMsg: $(this).val()},
+						cache: false,
+						beforeSend: function(){},
+						success: function(data){
+							$('.private-msg-text').val("");
+						}
+					});
 			}
 		}
 	});
@@ -843,7 +854,7 @@ function getUserId(){
 	});
 }
 
-function refreshdiv() {
+function refreshdiv() { //world post
 		setTimeout(function(){
 			$('.all-post').load('../php/z-home/displayPost.php').fadeIn("slow");
 			refreshdiv();
@@ -1015,20 +1026,33 @@ function goOffline(){
 	});
 }
 
-function createChatbox(id, name){
+
+function displayPrivateChat() {
+		setTimeout(function(){
+			$('.private-msg').load('../php/z-home/displayPrivateChat.php').fadeIn();
+			displayPrivateChat();
+		}, 1000);
+}
+
+function createChatbox(id, name, userId){
+	//id = online user id
+	//userid = your Id
 	var chatbox = 	"<div class='chatboxDiv text-center' name='"+id+"' id='"+id+"'>"; //start parent div
 		chatbox +=		"<div class='chatbox-div-header'>"; //start child div header
 		chatbox +=			"<p class='pull-left'>"+name+"</p>";
 		chatbox +=			"<button type='button' id='"+id+"' class='chatX pull-right'><i class='glyphicon glyphicon-remove'></i></button>"	
 		chatbox +=		"</div>"; //end child div header
-		chatbox +=		"<div class='private-msg'>";  //start child div body privatemsg
+		chatbox +=		"<div class='private-msg' id='scrollbar-id'>";  //start child div body privatemsg
 		chatbox +=		"</div>"; //end child div body privatemsg
-		chatbox +=		"<input type='text' class='private-msg-text' placeholder='Input message here.'>"; 
+		chatbox +=		"<input type='text' class='private-msg-text' id='"+id+"' name='"+userId+"' placeholder='Input message here.'>"; 
 		chatbox +=	"</div>"; //end parent div
 
-	if ( !$('.chatBox').find('#' + id).length) {
+	if (!$('.chatBox').find('#' + id).length) {
     	$(".chatBox").prepend(chatbox);
-    	 $(".private-msg-text").focus();
+		$(".private-msg-text").focus();
+			
+			displayPrivateChat()
+
 	}
 }
 
