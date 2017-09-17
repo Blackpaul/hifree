@@ -809,6 +809,7 @@ $(document).ready(function(){
 						beforeSend: function(){},
 						success: function(data){
 							$('.private-msg-text').val("");
+							
 						}
 					});
 			}
@@ -1027,37 +1028,52 @@ function goOffline(){
 }
 
 
-
-
 function createChatbox(id, name, userId){
 	//id = online user id
 	//userid = your Id
 	var chatbox = 	"<div class='chatboxDiv text-center' name='"+id+"' id='"+id+"'>"; //start parent div
 		chatbox +=		"<div class='chatbox-div-header'>"; //start child div header
-		chatbox +=			"<p class='pull-left'>"+name+"</p>";
+		chatbox +=			"<p class='rname pull-left'>"+name+"</p>";
 		chatbox +=			"<button type='button' id='"+id+"' class='chatX pull-right'><i class='glyphicon glyphicon-remove'></i></button>"	
 		chatbox +=		"</div>"; //end child div header
 		chatbox +=		"<div class='private-msg' id='scrollbar-id'>";  //start child div body privatemsg
 		chatbox +=		"</div>"; //end child div body privatemsg
 		chatbox +=		"<input type='text' class='private-msg-text' id='"+id+"' name='"+userId+"' placeholder='Input message here.'>"; 
 		chatbox +=	"</div>"; //end parent div
+		
 
 	if (!$('.chatBox').find('#' + id).length) {
     	$(".chatBox").prepend(chatbox);
 		$(".private-msg-text").focus();
-			$.ajax({
-				url: '../php/z-home/displayPrivateChat.php',
-				type: 'POST',
-				data: {sendOnlineId: id, sendUserId : userId},
-				cache: false,
-				beforeSend: function(){},
-				success: function(data){
-					$('.private-msg').append(data);
-					
-				}
-			});
-			
-
+		testting(id);
 	}
+	 
 }
 
+var test = [];
+
+function testting(kaniid){
+	test.push(kaniid);
+	$("#kani").html(test); //display only
+
+	$.each(test, function (index, value) {
+  			$('#'+ value + '.private-msg-text').val(value);
+    });
+	
+
+	
+}
+
+function displayPrivateChat(getid,getuserId){
+	$.ajax({
+		url: '../php/z-home/displayPrivateChat.php',
+		type: 'POST',
+		data: {sendOnlineId: getid, sendUserId : getuserId},
+		cache: false,
+		beforeSend: function(){},
+		success: function(data){
+			$(".private-msg").empty();
+			$(".private-msg").append(data);
+		}
+	});
+}
