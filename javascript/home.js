@@ -17,6 +17,7 @@ $(document).ready(function(){
 	refreshdiv();
 	displayOnlineUser();
 	goOnline();
+
 	
 	window.addEventListener("beforeunload", function (event) {
     	goOffline();    
@@ -1031,13 +1032,14 @@ function goOffline(){
 function createChatbox(id, name, userId){
 	//id = online user id
 	//userid = your Id
-	var chatbox = 	"<div class='chatboxDiv text-center' name='"+id+"' id='"+id+"'>"; //start parent div
+	var chatbox = 	"<div class='"+id+" chatboxDiv text-center' name='"+id+"' id='"+id+"'>"; //start parent div
 		chatbox +=		"<div class='chatbox-div-header'>"; //start child div header
 		chatbox +=			"<p class='rname pull-left'>"+name+"</p>";
 		chatbox +=			"<button type='button' id='"+id+"' class='chatX pull-right'><i class='glyphicon glyphicon-remove'></i></button>"	
 		chatbox +=		"</div>"; //end child div header
-		chatbox +=		"<div class='private-msg' id='scrollbar-id'>";  //start child div body privatemsg
-		chatbox +=		"</div>"; //end child div body privatemsg
+		chatbox +=		"<div class='private-msg-wrap'>";
+		chatbox +=			"<div class='private-msg' id='scrollbar-id'></div>"; //body privatemsg
+		chatbox +=		"</div>"; 
 		chatbox +=		"<input type='text' class='private-msg-text' id='"+id+"' name='"+userId+"' placeholder='Input message here.'>"; 
 		chatbox +=	"</div>"; //end parent div
 		
@@ -1045,24 +1047,47 @@ function createChatbox(id, name, userId){
 	if (!$('.chatBox').find('#' + id).length) {
     	$(".chatBox").prepend(chatbox);
 		$(".private-msg-text").focus();
-		testting(id);
+		//testting(id);
+		//$('#'+ id + '.private-msg-text').val(id);
+			var timeOutId = 0;
+			var ajaxFn = function () {
+				$.ajax({
+					url: '../php/z-home/displayPrivateChat.php',
+					type: 'POST',
+					data: {sendOnlineId: $('#'+ id + '.private-msg-text').attr('id'), sendUserId : $('#'+ id + '.private-msg-text').attr('name')},
+					cache: false,
+					beforeSend: function(){},
+			   		success: function (response) {
+			   			$(".private-msg").scrollTop($(".private-msg")[0].scrollHeight);
+
+						timeOutId = setTimeout(ajaxFn, 1);
+						$('.'+ id + '>' + '.private-msg-wrap > .private-msg').load('../php/z-home/a-try1.php').fadeIn();
+					}
+				});
+			}
+			ajaxFn();
 	}
 	 
 }
 
-var test = [];
 
-function testting(kaniid){
-	test.push(kaniid);
-	$("#kani").html(test); //display only
 
-	$.each(test, function (index, value) {
-  			$('#'+ value + '.private-msg-text').val(value);
-    });
+
+
+
+//var test = [];
+
+//function testting(kaniid){
+//	test.push(kaniid);
+//	$("#kani").html(test); //display only
+
+//	$.each(test, function (index, value) {
+//  			$('#'+ value + '.private-msg-text').val(value);
+//    });
 	
 
 	
-}
+//}
 
 function displayPrivateChat(getid,getuserId){
 	$.ajax({
