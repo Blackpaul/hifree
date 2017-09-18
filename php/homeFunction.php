@@ -173,7 +173,7 @@
 				//display private chat
 				public function displayPrivateChat($getOnlineId,$getUsereId){
 					
-					$displayPrivateChatQuery = $this->db->prepare('SELECT privateMsg from tbl_privateChat where 
+					$displayPrivateChatQuery = $this->db->prepare('SELECT * from tbl_privateChat where 
 						(onlineId = :getOnlineId or onlineId = :getInverseOnlineId) and (userId = :getUsereId or userId = :getInverseUsereId) order by privateChatId asc');
 					$displayPrivateChatQuery->execute(
 						array(
@@ -185,7 +185,12 @@
 					);
 
 					while($row = $displayPrivateChatQuery->fetch(PDO::FETCH_OBJ)){
-						echo 	"<p style='width:100%;height:25px;border:solid 1px red;'>".$row->privateMsg."</p>";
+						if($row->onlineId != $getUsereId){
+							echo 	"<p class='msgRight'>".$row->privateMsg."</p>";
+						}else{
+							echo 	"<p class='msgLeft'>".$row->privateMsg."</p>";
+						}
+						
 					}
 				}
 
