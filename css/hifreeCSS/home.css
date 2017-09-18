@@ -1065,7 +1065,7 @@ body, html {
   font-size: 12px;
 }
 .msgRight {
-	padding-left:10px;padding-right:10px;font-size:16px;clear:both;float:right;text-align:right;background-color:#ccc;
+	padding-left: 10px;padding-right:10px;font-size:16px;clear:both;float:right;text-align:right;background-color:#ccc;
 }
 .msgLeft {
 	padding-left:10px;padding-right:10px;font-size:16px;clear:both;float:left;text-align:left;background-color:#0ae;
