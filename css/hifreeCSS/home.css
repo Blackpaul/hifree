@@ -1009,32 +1009,39 @@ body, html {
 }
 .chatbox-div-header {
 	width: 100%;
-	height: 25px;
+	height: 30px;
 	background-color: #0ae;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 	color: #fff;
 }
 .chatbox-div-header p{
-	top: 3px;
+	top: 6px;
 	margin-left: 10px;
 	text-transform: capitalize;
 	position: relative;
 }
 .chatX {
-	top: 4px;
+	top: 8px;
 	height: 10px;
 	font-size: 12px;
 	position: relative;
 	background: none;
 	border: none;
 }
+.chatboxDiv .private-msg-wrap {
+	overflow:   hidden;
+	position:   relative;
+	width:      100%;
+	height:     300px;
+	border-bottom: solid 1px #ccc;
+}
 .chatboxDiv .private-msg {
+	overflow:   auto;
+	position:   absolute;
+	bottom:     0;
 	width: 100%;
-	height: 300px;
-	border-bottom: solid 1px rgba(0,0,0,0.2);
-	overflow-y: auto;
-	overflow-x: hidden;
+	max-height: 300px;
 }
 .chatboxDiv .private-msg-text {
 	padding-left: 10px;
@@ -1056,4 +1063,10 @@ body, html {
 }
 .chatboxDiv .private-msg-text:-moz-placeholder { /* Firefox 18- */
   font-size: 12px;
+}
+.msgRight {
+	padding-left:10px;padding-right:10px;font-size:16px;clear:both;float:right;text-align:right;background-color:#ccc;
+}
+.msgLeft {
+	padding-left:10px;padding-right:10px;font-size:16px;clear:both;float:left;text-align:left;background-color:#0ae;
 }
