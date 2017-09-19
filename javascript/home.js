@@ -1033,7 +1033,6 @@ function createChatbox(id, name, userId){
 	//id = online user id
 	//userid = your Id
 	var chatbox = 	"<div class='"+id+" chatboxDiv text-center' name='"+id+"' id='"+id+"'>"; //start parent div
-		
 		chatbox +=		"<div class='chatbox-div-header'>"; //start child div header
 		chatbox +=			"<i class='fa fa-weixin' ></i>"
 		chatbox +=			"<p class='rname'>"+name+"</p>";
@@ -1041,8 +1040,6 @@ function createChatbox(id, name, userId){
 		chatbox +=		"</div>"; //end child div header
 		chatbox +=		"<div class='private-msg'></div>"; //body privatemsg
 		chatbox +=		"<input type='text' class='private-msg-text form-control' id='"+id+"' name='"+userId+"' placeholder='Input message here.'>";
-		
-		
 		chatbox +=	"</div>"; //end parent div
 		
 
@@ -1060,11 +1057,9 @@ function createChatbox(id, name, userId){
 					data: {sendOnlineId: $('#'+ id + '.private-msg-text').attr('id'), sendUserId : $('#'+ id + '.private-msg-text').attr('name')},
 					cache: false,
 					beforeSend: function(){},
-			   		success: function (response) {
-			   			
-
+					success: function (response) {
 						timeOutId = setTimeout(ajaxFn, 1000);
-						$('.'+ id + '>' + '.private-msg').load('../php/z-home/a-try1.php').fadeIn();
+						$('.'+ id + '>' + '.private-msg').load('../php/z-home/refreshChatbox.php').fadeIn();
 					}
 				});
 			}
@@ -1073,35 +1068,12 @@ function createChatbox(id, name, userId){
 	 
 }
 
-
-
-
-
-
 //var test = [];
-
 //function testting(kaniid){
 //	test.push(kaniid);
 //	$("#kani").html(test); //display only
-
 //	$.each(test, function (index, value) {
 //  			$('#'+ value + '.private-msg-text').val(value);
-//    });
-	
-
-	
+//    });	
 //}
 
-function displayPrivateChat(getid,getuserId){
-	$.ajax({
-		url: '../php/z-home/displayPrivateChat.php',
-		type: 'POST',
-		data: {sendOnlineId: getid, sendUserId : getuserId},
-		cache: false,
-		beforeSend: function(){},
-		success: function(data){
-			$(".private-msg").empty();
-			$(".private-msg").append(data);
-		}
-	});
-}
