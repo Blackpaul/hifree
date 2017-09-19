@@ -984,6 +984,13 @@ body, html {
 }
 
 /** create dynamic chatbox here *****************/
+.chatbox-wrap {
+	left: 0;
+	right: 0;
+	height: 100%;
+	position: absolute; 
+	padding: 0;
+}
 .chatBox {
 	bottom: 0;
 	width: 82%;
@@ -1037,7 +1044,7 @@ body, html {
 }
 .chatbox-div-header button {
 	top: 5px;
-	right: 20px;
+	right: 15px;
 	position: absolute;
 	background: none;
 	border: none;
