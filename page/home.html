@@ -12,6 +12,7 @@
 			<link rel="stylesheet" type="text/css" href="../css/hifreeCSS/home.css">
 			<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 			<link rel="stylesheet" type="text/css" href="../css/hifreeCSS/mediaQuery.css">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 			<script src="../javascript/plugins/jquery-3.2.1.min.js"></script>
 			<script src="../javascript/plugins/bootstrap.min.js"></script>
@@ -23,8 +24,12 @@
 	<div class="background">
 	<div class="text-center err-msg"></div>
 	<div class="div-post-action"></div>
-	<div id="kani" style="position:absolute;width: 300px;height: 500px;z-index: 9999;background-color: #fff;display: none;"></div><!--testing div-->
-	
+	<div id="kani" style="position:absolute;width: 300px;height: 500px;z-index: 9999;background-color: #fff;display: none;"><i class="fa fa-weixin" style="font-size:36px"></i></div><!--testing div-->
+	<div class="container" style="position: absolute;height: 100%;margin: 0 auto; left:0; right: 0;padding: 0;" > 
+		<div class="chatBox hidden-xs hidden-sm" id="scrollbar-id">
+						<!--chatbox here-->
+					</div>
+	</div>
 		<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="container">
@@ -116,9 +121,7 @@
 							
 						</div>
 					</div>
-					<div class="chatBox hidden-xs hidden-sm" id="scrollbar-id">
-						<!--chatbox here-->
-					</div>
+					
 				</div>
 
 				<div class="div-inner-content-sub" id="scrollbar-id" >

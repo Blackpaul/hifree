@@ -1033,21 +1033,21 @@ function createChatbox(id, name, userId){
 	//id = online user id
 	//userid = your Id
 	var chatbox = 	"<div class='"+id+" chatboxDiv text-center' name='"+id+"' id='"+id+"'>"; //start parent div
+		chatbox +=		"<div class='private-msg'></div>"; //body privatemsg
 		chatbox +=		"<div class='chatbox-div-header'>"; //start child div header
 		chatbox +=			"<p class='rname pull-left'>"+name+"</p>";
 		chatbox +=			"<button type='button' id='"+id+"' class='chatX pull-right'><i class='glyphicon glyphicon-remove'></i></button>"	
 		chatbox +=		"</div>"; //end child div header
-		chatbox +=		"<div class='private-msg-wrap'>";
-		chatbox +=			"<div class='private-msg'></div>"; //body privatemsg
-		chatbox +=		"</div>"; 
-		chatbox +=		"<input type='text' class='private-msg-text' id='"+id+"' name='"+userId+"' placeholder='Input message here.'>"; 
+		chatbox +=		"<input type='text' class='private-msg-text' id='"+id+"' name='"+userId+"' placeholder='Input message here.'>";
+		
+		
 		chatbox +=	"</div>"; //end parent div
 		
 
 	if (!$('.chatBox').find('#' + id).length) {
     	$(".chatBox").prepend(chatbox);
 		$(".private-msg-text").focus();
-		$(".private-msg-wrap").scrollTop($(".private-msg-wrap")[0].scrollHeight);
+		
 		//testting(id);
 		//$('#'+ id + '.private-msg-text').val(id);
 			var timeOutId = 0;
@@ -1062,7 +1062,7 @@ function createChatbox(id, name, userId){
 			   			
 
 						timeOutId = setTimeout(ajaxFn, 1000);
-						$('.'+ id + '>' + '.private-msg-wrap > .private-msg').load('../php/z-home/a-try1.php').fadeIn();
+						$('.'+ id + '>' + '.private-msg').load('../php/z-home/a-try1.php').fadeIn();
 					}
 				});
 			}
