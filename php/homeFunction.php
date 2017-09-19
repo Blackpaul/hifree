@@ -173,7 +173,6 @@ header('Content-Type: text/html; charset=utf-8');
 
 				//display private chat
 				public function displayPrivateChat($getOnlineId,$getUsereId){
-					
 					$displayPrivateChatQuery = $this->db->prepare('SELECT * from tbl_privateChat where 
 						(onlineId = :getOnlineId or onlineId = :getInverseOnlineId) and (userId = :getUsereId or userId = :getInverseUsereId) order by privateChatId desc');
 					$displayPrivateChatQuery->execute(
@@ -194,16 +193,16 @@ header('Content-Type: text/html; charset=utf-8');
 						);
 						$Photo = $displayUserPhotoQuery->fetchColumn();
 
-						$kani1 = $row->privateMsg;
+						$privateChat = $row->privateMsg;
 						if($row->onlineId != $getUsereId){
 							echo 	"<div class='msgLeft'>";
 							echo 		"<div class='chatboxPhotoLeft' style='background-image: url(".$Photo.");'></div>";
-							echo 		"<p class='pull-left chatboxMsgLeft'>".$kani1."</p>";
+							echo 		"<p class='pull-left chatboxMsgLeft'>".$privateChat."</p>";
 							echo 	"</div>";
 						}else{
 							echo 	"<div class='msgRight'>";
 							echo 		"<div class='chatboxPhotoRight' style='background-image: url(".$Photo.");'></div>";
-							echo 		"<p class='pull-right chatboxMsgRight'>".$kani1."</p>";
+							echo 		"<p class='pull-right chatboxMsgRight'>".$privateChat."</p>";
 							echo 	"</div>";
 						}
 					}
