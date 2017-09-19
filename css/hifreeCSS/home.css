@@ -1030,18 +1030,22 @@ body, html {
 	border: none;
 }
 .chatboxDiv .private-msg-wrap {
-	overflow:   hidden;
+	overflow:   auto;
 	position:   relative;
 	width:      100%;
 	height:     300px;
 	border-bottom: solid 1px #ccc;
+
+	-ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Safari */
+    transform: rotate(180deg);
+
 }
 .chatboxDiv .private-msg {
-	overflow:   auto;
-	position:   absolute;
-	bottom:     0;
 	width: 100%;
 	max-height: 300px;
+
+
 }
 .chatboxDiv .private-msg-text {
 	padding-left: 10px;
@@ -1065,8 +1069,26 @@ body, html {
   font-size: 12px;
 }
 .msgRight {
-	padding-left: 10px;padding-right:10px;font-size:16px;clear:both;float:right;text-align:right;background-color:#ccc;
+	padding-left: 10px;
+	padding-right:10px;
+	font-size:16px;
+	clear:both;
+	float:left;
+	text-align:left;
+	background-color:#0ae;
+	-ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Safari */
+    transform: rotate(180deg);
 }
 .msgLeft {
-	padding-left:10px;padding-right:10px;font-size:16px;clear:both;float:left;text-align:left;background-color:#0ae;
+	padding-left:10px;
+	padding-right:10px;
+	font-size:16px;
+	clear:both;
+	float:right;
+	text-align:right;
+	background-color:#ccc;
+	-ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Safari */
+    transform: rotate(180deg);
 }
