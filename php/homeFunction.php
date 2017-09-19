@@ -1,4 +1,5 @@
 <?php  
+header('Content-Type: text/html; charset=utf-8');
 	$chome = new chome($connect);
 
 	class chome{
@@ -125,7 +126,7 @@
 						$Photo = $displayUserPhotoQuery->fetchColumn();
 							echo "<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 div-display-user'>";
 							echo 	"<div class='div-display-user-img pull-left' style='background-image: url(".$Photo.");'></div>";
-							echo 	"<p class='clickName' id='".$row->ownId."' name='".$row->username."'>".ucfirst($row->username)."</p>";
+							echo 	"<p class='clickName' id='".$row->ownId."' name='".ucfirst($row->username)."'>".ucfirst($row->username)."</p>";
 							echo "</div>";
 					}
 				}
@@ -185,12 +186,26 @@
 					);
 
 					while($row = $displayPrivateChatQuery->fetch(PDO::FETCH_OBJ)){
+						$displayUserPhotoQuery = $this->db->prepare('SELECT photoName from tbl_userPhoto where userId = :getId order by photoId desc limit 1');
+						$displayUserPhotoQuery->execute(
+							array(
+								':getId' => $row->userId,
+							)
+						);
+						$Photo = $displayUserPhotoQuery->fetchColumn();
+
+						$kani1 = $row->privateMsg;
 						if($row->onlineId != $getUsereId){
-							echo 	"<p class='msgRight'>".$row->privateMsg."</p>";
+							echo 	"<div class='msgLeft'>";
+							echo 		"<div class='chatboxPhotoLeft' style='background-image: url(".$Photo.");'></div>";
+							echo 		"<p class='pull-left chatboxMsgLeft'>".$kani1."</p>";
+							echo 	"</div>";
 						}else{
-							echo 	"<p class='msgLeft'>".$row->privateMsg."</p>";
+							echo 	"<div class='msgRight'>";
+							echo 		"<div class='chatboxPhotoRight' style='background-image: url(".$Photo.");'></div>";
+							echo 		"<p class='pull-right chatboxMsgRight'>".$kani1."</p>";
+							echo 	"</div>";
 						}
-						
 					}
 				}
 

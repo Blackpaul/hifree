@@ -1033,12 +1033,14 @@ function createChatbox(id, name, userId){
 	//id = online user id
 	//userid = your Id
 	var chatbox = 	"<div class='"+id+" chatboxDiv text-center' name='"+id+"' id='"+id+"'>"; //start parent div
-		chatbox +=		"<div class='private-msg'></div>"; //body privatemsg
+		
 		chatbox +=		"<div class='chatbox-div-header'>"; //start child div header
-		chatbox +=			"<p class='rname pull-left'>"+name+"</p>";
-		chatbox +=			"<button type='button' id='"+id+"' class='chatX pull-right'><i class='glyphicon glyphicon-remove'></i></button>"	
+		chatbox +=			"<i class='fa fa-weixin' ></i>"
+		chatbox +=			"<p class='rname'>"+name+"</p>";
+		chatbox +=			"<button type='button' id='"+id+"' class='chatX'><i class='glyphicon glyphicon-remove'></i></button>"	
 		chatbox +=		"</div>"; //end child div header
-		chatbox +=		"<input type='text' class='private-msg-text' id='"+id+"' name='"+userId+"' placeholder='Input message here.'>";
+		chatbox +=		"<div class='private-msg'></div>"; //body privatemsg
+		chatbox +=		"<input type='text' class='private-msg-text form-control' id='"+id+"' name='"+userId+"' placeholder='Input message here.'>";
 		
 		
 		chatbox +=	"</div>"; //end parent div
@@ -1046,7 +1048,7 @@ function createChatbox(id, name, userId){
 
 	if (!$('.chatBox').find('#' + id).length) {
     	$(".chatBox").prepend(chatbox);
-		$(".private-msg-text").focus();
+		$('#'+ id + '.private-msg-text').focus();
 		
 		//testting(id);
 		//$('#'+ id + '.private-msg-text').val(id);

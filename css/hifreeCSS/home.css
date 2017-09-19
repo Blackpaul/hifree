@@ -990,7 +990,9 @@ body, html {
 	height: 350px;
 	position: absolute;
 	z-index: 999;
-	direction: rtl;
+	-ms-transform: rotate(180deg); /* IE 9 */
+	-webkit-transform: rotate(180deg); /* Safari */
+	transform: rotate(180deg);
 }
 .chatboxDiv {
 	margin-left: 5px;
@@ -1004,6 +1006,10 @@ body, html {
 	-moz-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
 	box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
 	position: relative;
+	-ms-transform: rotate(180deg); /* IE 9 */
+	-webkit-transform: rotate(180deg); /* Safari */
+	transform: rotate(180deg);
+
 
 }
 .chatbox-div-header {
@@ -1016,68 +1022,155 @@ body, html {
 	color: #fff;
 	position: absolute;
 }
+.chatbox-div-header i {
+	top: 3px;
+	left: 5px;
+	font-size: 25px;
+	position: absolute;
+}
+.chatbox-div-header p {
+	top: 5px;
+	left: 0;
+	right: 0;
+	color: gold;
+	position: absolute;
+}
+.chatbox-div-header button {
+	top: 5px;
+	right: 20px;
+	position: absolute;
+	background: none;
+	border: none;
+}
+.chatbox-div-header button i{
+	font-size: 15px !important;
+}
 .private-msg {
 	top: 30px;
-	overflow-y: auto;
+	overflow-y: scroll;
+	overflow-x: hidden;
 	position: absolute;
-	height: 300px;
+	height: 280px;
 	width: 100%;
-	background-color: red;
 	-ms-transform: rotate(180deg); /* IE 9 */
-    -webkit-transform: rotate(180deg); /* Safari */
-    transform: rotate(180deg);
+	-webkit-transform: rotate(180deg); /* Safari */
+	transform: rotate(180deg);
+	-ms-transform: rotateX(180deg); /* IE 9 */
+	-webkit-transform: rotateX(180deg); /* Safari */
+	transform: rotateX(180deg);
+
 }
 .private-msg-text {
 	left: 0;
 	bottom: 0;
 	width: 100%;
 	position: absolute;
-}
-.chatboxDiv .private-msg-text {
 	padding-left: 10px;
 	width: 100%;
-	border: none;
-	direction: ltr;
+	border: none !important;
 }
 .chatboxDiv .private-msg-text:focus {
-    outline-width: 0;
+	outline-width: 0 !important;
 }
 .chatboxDiv .private-msg-text::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  font-size: 12px;
+	font-size: 12px;
 }
 .chatboxDiv .private-msg-text::-moz-placeholder { /* Firefox 19+ */
-  font-size: 12px;
+	font-size: 12px;
 }
 .chatboxDiv .private-msg-text:-ms-input-placeholder { /* IE 10+ */
-  font-size: 12px;
+	font-size: 12px;
 }
 .chatboxDiv .private-msg-text:-moz-placeholder { /* Firefox 18- */
-  font-size: 12px;
-}
-.msgRight {
-	top: 20px;
-	left: 50px;
-	padding-left: 10px;
-	padding-right:10px;
-	font-size:16px;
-	clear:both;
-	float:left;
-	text-align:left;
-	background-color:#0ae;
-	position: relative;
-	-ms-transform: rotate(180deg); /* IE 9 */
-    -webkit-transform: rotate(180deg); /* Safari */
-    transform: rotate(180deg);
+	font-size: 12px;
 }
 .msgLeft {
-	padding-left:10px;
-	padding-right:10px;
-	font-size:16px;
+	bottom: 5px;
+	left: 10px;
+	margin-top: -30px;
+	position: relative;
 	clear:both;
 	float:right;
 	text-align:right;
-	background-color:#ccc; /* sky blue*/
 	-ms-transform: rotate(180deg); /* IE 9 */
-    -webkit-transform: rotate(180deg); /* Safari */
-    transform: rotate(180deg);
+	-webkit-transform: rotate(180deg); /* Safari */
+	transform: rotate(180deg);
+
+}
+.msgLeft p{
+	bottom: 30px;
+	left: 55px;
+	max-width: 160px;
+	min-width: 1px;
+	height: auto;
+	padding: 5px;
+	position: relative;
+	text-align: justify;
+	border-radius: 5px;
+	background-color: rgba(0,170,238, 1);
+	-ms-transform: rotateY(180deg); /* IE 9 */
+	-webkit-transform: rotateY(180deg); /* Safari */
+	transform: rotateY(180deg);
+	white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+	white-space: -webkit-pre-wrap; /*Chrome & Safari */ 
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	white-space: pre-wrap;       /* css-3 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	word-break: break-all;
+	white-space: normal;
+}
+.chatboxPhotoLeft {
+	left: 20px;
+	width:30px;
+	height:30px;
+	position: relative;
+	border-radius: 50%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.msgRight {
+	bottom: 5px;
+	position: relative;
+	clear: both;
+	float: left;
+	text-align:	left;
+	-ms-transform: rotate(180deg); /* IE 9 */
+	-webkit-transform: rotate(180deg); /* Safari */
+	transform: rotate(180deg);
+}
+.msgRight p{
+	right: 45px;
+	max-width: 160px;
+	height: auto;
+	padding: 5px;
+	position: relative;
+	text-align: justify;
+	color: #fff;
+	background-color: rgba(0,170,238, 1);
+	border-radius: 5px;
+	-ms-transform: rotateY(180deg); /* IE 9 */
+	-webkit-transform: rotateY(180deg); /* Safari */
+	transform: rotateY(180deg);
+	white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+	white-space: -webkit-pre-wrap; /*Chrome & Safari */ 
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	white-space: pre-wrap;       /* css-3 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	word-break: break-all;
+	white-space: normal;
+}
+.chatboxPhotoRight {
+	right: 10px;
+	width:30px;
+	height:30px;
+	position: absolute;
+	color: #fff;
+	border-radius: 50%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
