@@ -134,6 +134,7 @@ header('Content-Type: text/html; charset=utf-8');
 
 				//go offline
 				public function updateLoginHistory(){
+					
 					$updateLoginHistoryQuery = $this->db->prepare('UPDATE tbl_loginHistory set loginStatus = :getStatus where userId = :getId');
 					$updateLoginHistoryQuery->execute(
 						array(
