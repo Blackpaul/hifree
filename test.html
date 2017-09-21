@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#1').prop('checked', 'checked');
+			$('html, body').animate({
+	        		scrollTop: $("#box1").offset().top
+	    		}, 1000);
+		});
+
+			
+
+			function myF1(){
+					
+				$('html, body').animate({
+	        		scrollTop: $("#box1").offset().top
+	    		}, 1000);
+			 
+			}
+			function myF2(){
+				$('html, body').animate({
+	        		scrollTop: $("#box2").offset().top
+	    		}, 1000);
+			}
+			function myF3(){
+				$('html, body').animate({
+	        		scrollTop: $("#box3").offset().top
+	    		}, 1000);
+			}
+			function myF4(){
+				$('html, body').animate({
+				  scrollTop: $("#box4").offset().top
+				}, 1000);
+			}
+		
+		
+	</script>
+	<style type="text/css">
+	::-webkit-scrollbar { 
+    display: none; 
+}
+		body{
+			padding: 0;
+			margin: 0 0 0 0;
+		}
+		.pullwidth {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			background-color:red;
+			
+
+		}
+	
+		.box1 {
+			width: 100%;
+			height: 100%;
+			background-image: url('image/1.jpg');
+			background-size: cover;
+			background-attachment: fixed;
+		}
+		.box2 {
+			width: 100%;
+			height: 100%;
+			background-image: url('image/2.jpg');
+			background-size: cover;
+			background-attachment: fixed;
+		}
+		.box3 {
+			width: 100%;
+			height: 100%;
+			background-image: url('image/3.jpg');
+			background-size: cover;
+			background-attachment: fixed;
+		}
+		.box4{
+			width: 100%;
+			height: 100%;
+			background-image: url('image/4.jpg');
+			background-size: cover;
+			background-attachment: fixed;
+		}
+		ul {
+			list-style-type: none;
+			position: fixed;
+			bottom: 50%;
+			top: 40%;
+		}
+	</style>
+</head>
+<body>
+	<div class="pullwidth">
+		
+		<ul>
+			<li><input type="radio" name="itor" onclick="myF1()" id="1"></li>
+			<li><input type="radio" name="itor" onclick="myF2()"></li>
+			<li><input type="radio" name="itor" onclick="myF3()"></li>
+			<li><input type="radio" name="itor" onclick="myF4()"></li>
+		</ul>
+			<div class="box1" id="box1"></div>
+			<div class="box2" id="box2"></div>
+			<div class="box3" id="box3"></div>
+			<div class="box4" id="box4"></div>
+		
+	</div>
+</body>
+</html>
