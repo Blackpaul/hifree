@@ -24,40 +24,40 @@
 						height: 100px;
 						background-color: red;
 						border-radius: 50%;
-						position: absolute;
+						position: fixed;
 						z-index: 1;
 					}
 					/* page 0 css here*/
-					.page0 {
+					.div0 {
 						width: 100%;
 						height: 100%;
 						position: relative;
-						background-image: url('../image/parallaxImage/page0.jpg');
-						background-attachment: fixed;
-						background-position: center;
-						background-repeat: no-repeat;
-						background-size: cover;
+						background: transparent;
 					}
 					/* page 1 css here*/
-					.page1 {
+					.div1 {
 						width: 100%;
 						height: 100%;
 						background-color: green;
 						position: relative;
 					}
 					.sleft {
-						top: -20%;
+						top: -40%;
 						width: 40%;
-						height: 70%;
+						height: 80%;
 						position: absolute;
-						background-color: black;
 						z-index: 1;
+						background-image: url('../image/parallaxImage/div1/cloud0.png');
+						background-width: 200px;
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: 550px 460px;
 					}
 					.sright {
-						top: -20%;
+						top: -30%;
 						right: 0;
 						width: 40%;
-						height: 70%;
+						height: 80%;
 						position: absolute;
 						background-color: black;
 						z-index: 1;
@@ -65,8 +65,9 @@
 					}
 				</style>
 
-			<script src="../javascript/plugins/jquery-3.2.1.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 			<script src="../javascript/plugins/bootstrap.min.js"></script>
+			<script src="../javascript/plugins/parallax.min.js"></script>
 			<script type="text/javascript">
 				$(document).ready(function(){
 					$(window).scroll(function (event) {
@@ -80,8 +81,8 @@
 <body>
 	<div class="wrap">
 		<div class="notification"></div>
-		<div class="page0"></div>
-		<div class="page1">
+		<div class="div0" data-parallax="scroll" data-image-src="../image/parallaxImage/div0/div0.jpg" data-z-index="1"></div>
+		<div class="div1">
 			<div class="sleft"></div>
 			<div class="sright"></div>
 		</div>
