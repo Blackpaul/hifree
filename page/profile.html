@@ -1,21 +1,90 @@
-<?php 
-	include '../php/userFunction.php';
-			$user = isLogin();
-?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Profile</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Profile</title>
+			<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+			<link rel="stylesheet" type="text/css" href="../css/hifreeCSS/font-awesome.min.css">
+				<style type="text/css">
+					body {
+						padding: 0;
+						margin: 0;
+						overflow-y: auto;
+						overflow-x: hidden;
+					}
+					.wrap {
+						width: 100%;
+						height: 100%;
+						position: absolute;
+					}
+					.notification {
+						width: 100px;
+						height: 100px;
+						background-color: red;
+						border-radius: 50%;
+						position: absolute;
+						z-index: 1;
+					}
+					/* page 0 css here*/
+					.page0 {
+						width: 100%;
+						height: 100%;
+						position: relative;
+						background-image: url('../image/parallaxImage/page0.jpg');
+						background-attachment: fixed;
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: cover;
+					}
+					/* page 1 css here*/
+					.page1 {
+						width: 100%;
+						height: 100%;
+						background-color: green;
+						position: relative;
+					}
+					.sleft {
+						top: -20%;
+						width: 40%;
+						height: 70%;
+						position: absolute;
+						background-color: black;
+						z-index: 1;
+					}
+					.sright {
+						top: -20%;
+						right: 0;
+						width: 40%;
+						height: 70%;
+						position: absolute;
+						background-color: black;
+						z-index: 1;
+
+					}
+				</style>
+
+			<script src="../javascript/plugins/jquery-3.2.1.min.js"></script>
+			<script src="../javascript/plugins/bootstrap.min.js"></script>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$(window).scroll(function (event) {
+						var scroll = $(window).scrollTop();
+							$('.sleft').css('left', - scroll / 1);// 1 up = slow
+							$('.sright').css('right', - scroll / 1); // 1 up = slow
+					});
+				});
+			</script>
 </head>
 <body>
-<a href="../php/logout.php">logout</a>
-<br>
-<br>
-<br>
-<br>
-<br>
-<?php 
-	echo $_SESSION['loginuseremail'];
-?>
+	<div class="wrap">
+		<div class="notification"></div>
+		<div class="page0"></div>
+		<div class="page1">
+			<div class="sleft"></div>
+			<div class="sright"></div>
+		</div>
+	</div>
 </body>
 </html>
