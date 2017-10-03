@@ -7,85 +7,136 @@
 		<title>Profile</title>
 			<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 			<link rel="stylesheet" type="text/css" href="../css/hifreeCSS/font-awesome.min.css">
+			<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
 				<style type="text/css">
 					body {
 						padding: 0;
 						margin: 0;
-						overflow-y: auto;
-						overflow-x: hidden;
 					}
 					.wrap {
 						width: 100%;
 						height: 100%;
 						position: absolute;
 					}
-					.notification {
-						width: 100px;
-						height: 100px;
-						background-color: red;
-						border-radius: 50%;
+					ul {
+						list-style-type: none;
 						position: fixed;
-						z-index: 1;
+						bottom: 50%;
+						top: 40%;
+						right: 10px;
+						z-index:9;
 					}
 					/* page 0 css here*/
 					.div0 {
 						width: 100%;
 						height: 100%;
 						position: relative;
-						background: transparent;
+						background-image: url('../image/parallaxImage/div0/div0Back.jpg');
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: cover;
+						
 					}
 					/* page 1 css here*/
 					.div1 {
 						width: 100%;
 						height: 100%;
-						background-color: green;
 						position: relative;
-					}
-					.sleft {
-						top: -40%;
-						width: 40%;
-						height: 80%;
-						position: absolute;
-						z-index: 1;
-						background-image: url('../image/parallaxImage/div1/cloud0.png');
-						background-width: 200px;
+						background-image: url('../image/parallaxImage/div0/div0.jpg');
 						background-position: center;
 						background-repeat: no-repeat;
-						background-size: 550px 460px;
+						background-size: cover;
+						display: none;
 					}
-					.sright {
-						top: -30%;
-						right: 0;
-						width: 40%;
-						height: 80%;
-						position: absolute;
-						background-color: black;
-						z-index: 1;
-
+					/* page 2 css here*/
+					.div2 {
+						width: 100%;
+						height: 100%;
+						position: relative;
+						background-image: url('../image/parallaxImage/div2/div2Back.jpg');
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: cover;
+						display: none;
 					}
 				</style>
 
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-			<script src="../javascript/plugins/bootstrap.min.js"></script>
-			<script src="../javascript/plugins/parallax.min.js"></script>
+		
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+			<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	
 			<script type="text/javascript">
+				var globalScrollVal = 0;
+				var globalHideDiv = "div0";
 				$(document).ready(function(){
-					$(window).scroll(function (event) {
-						var scroll = $(window).scrollTop();
-							$('.sleft').css('left', - scroll / 1);// 1 up = slow
-							$('.sright').css('right', - scroll / 1); // 1 up = slow
+					$('.rb0').click();
+					
+						$('body').css({'height':(($(window).height()))+'px'});
+					    // Now bind the event to the desired element
+					    $('body').on('mousewheel', function(e){
+
+					        e.preventDefault();
+					        if(e.originalEvent.wheelDelta < 0) {
+					        	if(globalScrollVal == 0){
+					        		$('.rb1').click();
+					        	}else if(globalScrollVal == 1){
+									$('.rb2').click();
+					        	}else if(globalScrollVal == 2){
+					        		$('.rb0').click();
+					        	}
+					           
+					        } else {
+					        	if(globalScrollVal == 0){
+					        		$('.rb2').click();
+					        	}else if(globalScrollVal == 1){
+									$('.rb0').click();
+					        	}else if(globalScrollVal == 2){
+					        		$('.rb1').click();
+					        	}
+					        }
+					    });
+
+					$('.rb0').click(function() {
+						$('.' + globalHideDiv).hide("puff");
+						$("body").css("overflow", "hidden");
+							$('.div0').fadeIn();
+						globalScrollVal = 0;
+						globalHideDiv = "div0"
 					});
+
+					$('.rb1').click(function() {
+						$('.' + globalHideDiv).hide("puff");
+						$("body").css("overflow", "hidden");					
+							$('.div1').fadeIn();
+						globalScrollVal = 1;
+						globalHideDiv = "div1"
+					});
+
+					$('.rb2').click(function() {
+						$('.' + globalHideDiv).hide("puff");
+						$("body").css("overflow", "hidden");					
+							$('.div2').fadeIn();
+						globalScrollVal = 2;
+						globalHideDiv = "div2"
+					});
+
+
 				});
 			</script>
 </head>
 <body>
 	<div class="wrap">
-		<div class="notification"></div>
-		<div class="div0" data-parallax="scroll" data-image-src="../image/parallaxImage/div0/div0.jpg" data-z-index="1"></div>
-		<div class="div1">
-			<div class="sleft"></div>
-			<div class="sright"></div>
-		</div>
+		<ul>
+			<li><input type="radio" name="itor" class="rb0"></li>
+			<li><input type="radio" name="itor" class="rb1"></li>
+			<li><input type="radio" name="itor" class="rb2"></li>
+		</ul>
+
+		<div class="div0">dev 0</div>
+		<div class="div1">dev 1</div>
+		<div class="div2">dev 2</div>
 	</div>
 </body>
 </html>
